@@ -204,9 +204,8 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-
-        //=======================================================================================
-        //===================================PRABHASHI's code====================================
+        //================================================================================
+        //===============================Prabhashi's code start  here=====================
         
         //This is a library for choose the file
         JFileChooser chooser = new JFileChooser();
@@ -216,7 +215,7 @@ public class upload extends javax.swing.JFrame {
         File f = chooser.getSelectedFile();
         //get the file path to a variable
         String filename = f.getAbsolutePath();
-        
+       
         try {
             //Read the file from the file path
             FileReader reader = new FileReader(filename);
@@ -233,9 +232,8 @@ public class upload extends javax.swing.JFrame {
             Logger.getLogger(upload.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //===================================PRABHASHI's code ends==================================
-        //==========================================================================================
-        
+        //=====================================Prabhahsi's code ends here==================================
+        //=================================================================================================
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
