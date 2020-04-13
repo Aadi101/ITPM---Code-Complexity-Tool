@@ -32,7 +32,6 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1050, 600));
-        setPreferredSize(new java.awt.Dimension(1100, 800));
         setSize(new java.awt.Dimension(1100, 800));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 102));
