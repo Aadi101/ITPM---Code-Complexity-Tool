@@ -24,6 +24,25 @@ public class upload extends javax.swing.JFrame {
     /**
      * Creates new form upload
      */
+    
+    //=========================Prabhahsi's variables========================
+    //======================================================================
+    
+    int Csval = 0;
+    int Wkw = 1;
+    int Nkw = 0;
+    int Wid = 1;
+    int Nid = 0;
+    int Wop = 1;
+    int Nop =0;
+    int Wnv = 1 ;
+    int Nnv =0;
+    int Wsl =1;
+    int Nsl =0;
+    
+    //=========================Prabhahsi's variables ends here==========================
+    //==================================================================================
+    
     public upload() {
         initComponents();
     }
@@ -260,31 +279,64 @@ public class upload extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
         //Get the text into a variable
-        String maintext = jTextArea1.getText();
+        String maintext = jTextArea1.getText().toString();
         
-        //Get the length of the text ( count the words in the text area )
-        int count = maintext.split(" ").length;
+        //Get the length of the text ( count the words in the text area )=============This was not use======
+        //int count = maintext.split(" ").length;
         
-        String[] arrayWords = maintext.split(" ");
-       
-        for(int in = 0; in < arrayWords.length; in++){
-            String wordToArray = arrayWords[in].toString();
-            String finalWord = "final";
+        //Scanner to scan the text
+        Scanner scanText = new Scanner(maintext);
+
+        //variables
+        String st;
+        int totother = 0;
+        
+        //nextLine means it will read the text line by line.
+        while((st = scanText.nextLine()) != null){
+            String[] texx = st.split(" ");
+
+            for (int i=0; i < texx.length; i++){
+                // this if statement for check Nkw is in the code. ==================This is correct======================
+                if ( texx[i].equals("class") || texx[i].equals("public") || texx[i].equals("void") || texx[i].equals("true") || texx[i].equals("else")
+                        || texx[i].equals("default") || texx[i].equals("return")|| texx[i].equals("null") || texx[i].equals("break") || texx[i].equals("static") || texx[i].equals("this")) {
+                    Nkw = Nkw + 1;
+                }
+                //This has only checking varibale type s are there or not ================This one mostly correct=======================
+                else if ( texx[i].contains("int")|| texx[i].contains("float") || texx[i].contains("double") || texx[i].contains("char") || texx[i].contains("main") 
+                        || texx[i].contains("class") || texx[i].contains("args") || texx[i].contains("array") || texx[i].contains("Linked List") 
+                        || texx[i].contains("Stack") || texx[i].contains("Queue") || texx[i].contains("System") || texx[i].contains("out") || texx[i].contains("println") 
+                        || texx[i].contains("print") || texx[i].equals("i") || texx[i].contains("j") || texx[i].equals("counter")     ) {
+                   Nid = Nid + 1;
+                }else if ( texx[i].equals("+") || texx[i].equals("-") || texx[i].equals("*") || texx[i].equals("/") || texx[i].equals("%") || texx[i].contains("&&")
+                        || texx[i].equals("||") || texx[i].equals("<")|| texx[i].equals(">") || texx[i].contains("<=") || texx[i].contains(">=")
+                        || texx[i].contains("==") || texx[i].equals("=")|| texx[i].contains("++") || texx[i].contains("--") || texx[i].contains(".")) {
+                   Nop = Nop + 1;
+                    //System.out.println("sysmbol : " + texx[i]);
+                }else if ( texx[i].equals("")  || texx[i].equals("Hi")|| texx[i].contains("")  ) {
+                   Nsl = Nsl + 1;
+                   //System.out.println("sysmbol : " + texx[i]);
+                }else {
+                   totother = totother + 1;
+                }
+            }  
             
-             if( wordToArray == finalWord){
-                 prabhaLabel.setText("Hari Yako");
-             }
-//             else{
-//                 prabhaLabel.setText("naaa");
-//             }
+            //Variable to count CS
+            Csval = Nkw + Nid + Nop + Nsl;
+
+            //Variable for convert Nid integer valuue to String
+            String Nnid = Integer.toString(Csval);
+            
+            //String value of the Nid will display in the interface of Upload.java.
+            prabhaLabel.setText(Nnid);
+
+//            This is for readt he array.=========Not in use========== This will help you============ 
+//            for(String ss: texx){
+//                System.out.print(ss +" ");
+//                
+//               
+//            }
         }
-        
-        //change int value to string. because we can't pass integer values into string 
-//        String nmae = Integer.toString(count);
-//        
-//        prabhaLabel.setText(nmae);
- 
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
