@@ -373,6 +373,20 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        //--------------------------------------------------Coupling----------------------------------------------------------
+        Coupling up = new Coupling();
+        up.setVisible(true);
+        
+        // Load table data
+
+        String fullCode6 = jTextArea1.getText();
+
+        if (fullCode6.isEmpty()) {
+
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        }
+        else{}
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
