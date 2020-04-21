@@ -398,7 +398,19 @@ public class upload extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        Inheritance up = new Inheritance();
+        up.setVisible(true);
+        
+        // Load table data
+
+        String fullCode6 = jTextArea1.getText();
+
+        if (fullCode6.isEmpty()) {
+
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        }
+        else{}// TODO add your handling code here:
         //Testing
     }//GEN-LAST:event_jButton6ActionPerformed
 
