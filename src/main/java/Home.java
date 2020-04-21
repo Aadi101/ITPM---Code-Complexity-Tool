@@ -60,7 +60,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(175, 175, 175)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 209, Short.MAX_VALUE))
+                .addGap(0, 219, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(315, 315, 315)
                 .addComponent(jLabel1)

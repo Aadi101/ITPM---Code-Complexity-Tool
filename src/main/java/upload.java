@@ -71,7 +71,8 @@ public class upload extends javax.swing.JFrame {
         prabhaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1110, 766));
+        setPreferredSize(new java.awt.Dimension(1110, 800));
+        setSize(new java.awt.Dimension(1110, 800));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
@@ -93,6 +94,11 @@ public class upload extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 102, 102));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton4.setText("CLEAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(0, 107, 179));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -135,6 +141,7 @@ public class upload extends javax.swing.JFrame {
         });
 
         jButton8.setBackground(new java.awt.Color(0, 107, 179));
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton8.setText("FINAL");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +184,7 @@ public class upload extends javax.swing.JFrame {
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -258,6 +265,8 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        ControlStruc up = new ControlStruc();
+        up.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
