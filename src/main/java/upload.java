@@ -477,6 +477,7 @@ public class upload extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {}
     /**
      * @param args the command line arguments
      */
