@@ -458,6 +458,7 @@ public class upload extends javax.swing.JFrame {
                 }
             }  
             
+            
             //Variable to count CS
             Csval = Nkw + Nid + Nop + Nsl;
 
@@ -529,3 +530,5 @@ public class upload extends javax.swing.JFrame {
     private javax.swing.JLabel prabhaLabel;
     // End of variables declaration//GEN-END:variables
 }
+
+
