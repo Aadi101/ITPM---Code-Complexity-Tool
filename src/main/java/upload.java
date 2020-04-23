@@ -323,11 +323,11 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         
-        Inheritance up = new Inheritance();
+        Inherit up = new Inherit();
         up.setVisible(true);
         
-        String msg = jTextArea1.getText();
-        new Inheritance(msg).setVisible(true);
+//        String msg = jTextArea1.getText();
+//        new Inheritance(msg).setVisible(true);
         
         // Load table data
 
