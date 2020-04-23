@@ -466,7 +466,7 @@ public class ControlStruc extends javax.swing.JFrame {
                     //                count_variable = 0;
                     //                while (patternMatcher.find()) {
                         //                    count_variable++;
-                        //                    System.out.println("found: " + count_variable + " : "
+                        //                    System.out.println("Wtcs: " + count_variable + " : "
                             //                            + patternMatcher.start() + " - " + patternMatcher.end());
                         //                }
                     Object[] row = {i, lines[i], 0};
@@ -577,7 +577,7 @@ public class ControlStruc extends javax.swing.JFrame {
                 }
 
                 //System.out.print(statementList);
-                JOptionPane.showMessageDialog(null, "Ctc : " + count);
+                JOptionPane.showMessageDialog(null, "Sum Wtcs  :  " + count);
             }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -603,7 +603,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
             System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif2);
 
-            jLabel1.setText("FOUND: " + countif2);
+            jLabel1.setText("Wtcs: " + countif2);
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -629,7 +629,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
             System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
 
-            jLabel5.setText("FOUND: " + countwhile3);
+            jLabel5.setText("Wtcs: " + countwhile3);
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
@@ -679,7 +679,7 @@ public class ControlStruc extends javax.swing.JFrame {
                 System.out.println("No of swith cases : " + countswitch5);
             }
 
-            jLabel8.setText("FOUND: " + countswitch5);
+            jLabel8.setText("Wtcs: " + countswitch5);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -705,7 +705,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
             System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor4);
 
-            jLabel6.setText("FOUND: " + countfor4);
+            jLabel6.setText("Wtcs: " + countfor4);
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -731,7 +731,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
             System.out.println("No. of catch statements: " + countcatch1);
 
-            jLabel7.setText("FOUND: " + countcatch1);
+            jLabel7.setText("Wtcs: " + countcatch1);
         }
     }//GEN-LAST:event_jButton14ActionPerformed
 
