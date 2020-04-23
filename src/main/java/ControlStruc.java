@@ -32,6 +32,14 @@ public class ControlStruc extends javax.swing.JFrame {
     public ControlStruc() {
         initComponents();
     }
+<<<<<<< HEAD
+=======
+    
+    public ControlStruc(String para) {
+        initComponents();
+        jTextArea1.setText(para);
+    }
+>>>>>>> test
 
     /**
      * This method is called from within the constructor to initialize the form.
