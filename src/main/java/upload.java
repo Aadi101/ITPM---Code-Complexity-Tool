@@ -281,6 +281,8 @@ public class upload extends javax.swing.JFrame {
         Coupling up = new Coupling();
         up.setVisible(true);
         
+        String msg = jTextArea1.getText();
+        new Coupling(msg).setVisible(true);
         // Load table data
 
         String fullCode6 = jTextArea1.getText();
