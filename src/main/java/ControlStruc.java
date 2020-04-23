@@ -35,7 +35,6 @@ public class ControlStruc extends javax.swing.JFrame {
     
     public ControlStruc(String para) {
         initComponents();
-        
         jTextArea1.setText(para);
     }
 
