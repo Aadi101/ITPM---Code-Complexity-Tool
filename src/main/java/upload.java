@@ -301,10 +301,15 @@ public class upload extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
         String msg = jTextArea1.getText();
         
         new VariableTable(msg).setVisible(true);
         
+
+        
+        VariableComplexity vcISHU = new VariableComplexity();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -337,6 +342,17 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
+        
+
+        
+        
+        
+        
+        
+        
+        
+        //==============================================================================================================================================
+        //==========================================================================================================================================
         //Get the text into a variable
         String maintext = jTextArea1.getText().toString();
         
