@@ -127,6 +127,11 @@ public class upload extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(0, 107, 179));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton5.setText("METHODS");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(0, 107, 179));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -343,7 +348,9 @@ public class upload extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
         
-
+        String msg = jTextArea1.getText();
+        
+        new SizeTable(msg).setVisible(true);
         
         
         
@@ -413,6 +420,14 @@ public class upload extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       String msg = jTextArea1.getText();
+        
+        new MethodTable(msg).setVisible(true);
+    
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {}
     /**
