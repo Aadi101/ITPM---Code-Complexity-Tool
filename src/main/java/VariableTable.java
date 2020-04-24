@@ -100,7 +100,7 @@ public class VariableTable extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Line No", "Program statements", "Wtcs", "NC", "Ccspps", "Ccs"
+                "Line No", "Program statements", "Wvs", "Npdtv", "Ncdtv", "Cv"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
