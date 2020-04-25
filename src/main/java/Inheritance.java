@@ -32,6 +32,7 @@ public class Inheritance extends javax.swing.JFrame {
      */
     public Inheritance() {
         initComponents();
+        //showData();
     }
     
     public Inheritance(String para) {
@@ -144,7 +145,7 @@ public class Inheritance extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(573, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,6 +223,8 @@ public class Inheritance extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // Load table data
 
@@ -243,6 +246,8 @@ public class Inheritance extends javax.swing.JFrame {
                 String words[] = lines[i].split("\\s");
 
                 int count = 0;  //variable to get the total complexity
+                
+                
 
                 //int count_variable = 0;
                 //                String codeFirst = fullCode6.replaceAll("\".*\"", ""); //remove double quotes from the code
@@ -252,23 +257,23 @@ public class Inheritance extends javax.swing.JFrame {
                 //        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
                 //      for (SingleLine singleLine : statementList) {
                     //count if conditions, logical and bitwise operators
-                    CountConditions getIf = new CountConditions(fullCode6, "if", 1);
-                    count = count + getIf.getCount();
+//                    CountConditions getIf = new CountConditions(fullCode6, "if", 1);
+//                    count = count + getIf.getCount();
 
                     //System.out.println("No. of if Conditional Inheritance with logical and/or bitwise operators: " + countif);
                     //count while conditions
-                    CountConditions getWhile = new CountConditions(fullCode6, "while", 2);
-                    count = count + getWhile.getCount();
+//                    CountConditions getWhile = new CountConditions(fullCode6, "while", 2);
+//                    count = count + getWhile.getCount();
 
                     //System.out.println("No. of while Iterative Inheritance with logical and/or bitwise operators: " + countwhile);
                     //count for conditions
-                    CountConditions getFor = new CountConditions(fullCode6, "for", 2);
-                    count = count + getFor.getCountForCatch();
+//                    CountConditions getFor = new CountConditions(fullCode6, "for", 2);
+//                    count = count + getFor.getCountForCatch();
 
                     //System.out.println("No. of for Iterative Inheritance with logical and/or bitwise operators: " + countfor);
                     //count catch conditions
-                    CountConditions getCatch = new CountConditions(fullCode6, "catch", 1);
-                    count = count + getCatch.getCountForCatch();
+//                    CountConditions getCatch = new CountConditions(fullCode6, "catch", 1);
+//                    count = count + getCatch.getCountForCatch();
 
                     //System.out.println("No. of catch statements: " + countcatch);
                     //count case blocks in switch
@@ -277,28 +282,27 @@ public class Inheritance extends javax.swing.JFrame {
                     //get rest words one by one
                     for (int j = 0; j < wordsSwitch.length; j++) {
 
-                        wordsSwitch[j] = wordsSwitch[j] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
+                        //wordsSwitch[j] = wordsSwitch[j] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
 
                         //                System.out.println(wordsSwitch[j]);
                         //get switch statements which only have brackets next to it
                         if (wordsSwitch[j].charAt(0) == '(' || wordsSwitch[j].charAt(1) == '(') {
 
                             //get content inside curly brackets using a stack
-                            CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[j]);
-                            String getSwitch = brackets.getCurly();
+//                            CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[j]);
+//                            String getSwitch = brackets.getCurly();
 
                             //System.out.println(getSwitch + "SWITCH");
                             //count case blocks
-                            Pattern pSwitch = Pattern.compile("case");
-                            Matcher mSwitch = pSwitch.matcher(getSwitch);
+//                            Pattern pSwitch = Pattern.compile("case");
+//                            Matcher mSwitch = pSwitch.matcher(getSwitch);
 
-                            while (mSwitch.find()) {
-                                ++count; //increment count
-                            }
+//                            while (mSwitch.find()) {
+//                                ++count; //increment count
+//                            }
 
                         }
                     }
-
                     //System.out.println("No of swith cases : " + countswitch);
                     //String variablePat = "\\bfloat+([\\s][_$a-zA-Z])\\w+|\\bdouble+([\\s][_$a-zA-Z])\\w+|\\bint+([\\s][_$a-zA-Z])\\w+";
                     //                    int line_i_length=lines[i].length();
@@ -316,7 +320,6 @@ public class Inheritance extends javax.swing.JFrame {
 
                     model.addRow(row);
                 }
-
             }
     }//GEN-LAST:event_jButton11ActionPerformed
 

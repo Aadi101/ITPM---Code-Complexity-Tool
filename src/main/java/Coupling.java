@@ -32,6 +32,7 @@ public class Coupling extends javax.swing.JFrame {
      */
     public Coupling() {
         initComponents();
+        showData();
     }
     
     public Coupling(String para) {
@@ -40,6 +41,15 @@ public class Coupling extends javax.swing.JFrame {
         jTextArea1.setText(para);
     }
 
+    public void showData(){
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        String[] cols = {"Nr","Nmcms","Nmcmd","Nmcrms","Nmcrmd","Nrmcrms","Nrmcrmd","Nrmcms","Nrmcmd","Nmrgvs","Nmrgvd","Ccp"};
+        String [][] data = {{"1","0","1","1","0","0","0","0","0","0","0","3"}};
+        
+        model.setDataVector(data, cols);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
