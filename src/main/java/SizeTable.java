@@ -87,7 +87,7 @@ public class SizeTable extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(0, 153, 102));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton11.setText("Load Data in Table View");
+        jButton11.setText("Calculate Size");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -99,7 +99,7 @@ public class SizeTable extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Line No", "Program statements", "Wvs", "Npdtv", "Ncdtv", "Cv"
+                "Line No", "Program statements", "Nkw", "Nid", "Nop", "Nnv", "Nsl", "Cs"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -232,78 +232,38 @@ public class SizeTable extends javax.swing.JFrame {
             System.out.println(lineCount);
 
             for (int i = 0; i < lineCount; i++) {
+                int Nkw = 0;
+                int Nid = 0;
+                int Nop = 0;
+                int Nnv = 0;
+                int Nsl = 0;
+                int Cs = 0;
+                
+                Size size = new Size();
+                size.setTextLine(lines[i]);
+                size.calculateWeightDueToKeyword();
+                size.calculateWeightDueToIdentifiers();
+                size.findStringLiterals();
+                size.numericValueFind();
+                size.findOperators();
+                
+                Nkw = size.getSumOfKeywords();
+                Nid = size.getSumOfIdentifiers();
+                Nop = size.getSumOfOperators();
+                Nnv = size.getSumOfNumeric();
+                Nsl = size.getSumOfStringLiterals();
+                
+                Cs = Nkw + Nid + Nop + Nnv + Nsl;
+                
+                
 
-                String words[] = lines[i].split("\\s");
+//                String words[] = lines[i].split("\\s");
 
-                int count = 0;  //variable to get the total complexity
+//                int count = 0;  //variable to get the total complexity
 
-                //int count_variable = 0;
-                //                String codeFirst = fullCode6.replaceAll("\".*\"", ""); //remove double quotes from the code
-                //                String codeNext = codeFirst.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-                //                String codeFinal = codeNext.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-                //System.out.println(codeFinal);
-                //        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
-                //      for (SingleLine singleLine : statementList) {
-                    //count if conditions, logical and bitwise operators
-                    CountConditions getIf = new CountConditions(fullCode6, "if", 1);
-                    count = count + getIf.getCount();
-
-                    //System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif);
-                    //count while conditions
-                    CountConditions getWhile = new CountConditions(fullCode6, "while", 2);
-                    count = count + getWhile.getCount();
-
-                    //System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile);
-                    //count for conditions
-                    CountConditions getFor = new CountConditions(fullCode6, "for", 2);
-                    count = count + getFor.getCountForCatch();
-
-                    //System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor);
-                    //count catch conditions
-                    CountConditions getCatch = new CountConditions(fullCode6, "catch", 1);
-                    count = count + getCatch.getCountForCatch();
-
-                    //System.out.println("No. of catch statements: " + countcatch);
-                    //count case blocks in switch
-                    String[] wordsSwitch = fullCode6.split("switch"); //split from switch
-
-                    //get rest words one by one
-                    for (int j = 0; j < wordsSwitch.length; j++) {
-
-                        wordsSwitch[j] = wordsSwitch[j] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
-
-                        //                System.out.println(wordsSwitch[j]);
-                        //get switch statements which only have brackets next to it
-                        if (wordsSwitch[j].charAt(0) == '(' || wordsSwitch[j].charAt(1) == '(') {
-
-                            //get content inside curly brackets using a stack
-                            CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[j]);
-                            String getSwitch = brackets.getCurly();
-
-                            //System.out.println(getSwitch + "SWITCH");
-                            //count case blocks
-                            Pattern pSwitch = Pattern.compile("case");
-                            Matcher mSwitch = pSwitch.matcher(getSwitch);
-
-                            while (mSwitch.find()) {
-                                ++count; //increment count
-                            }
-
-                        }
-                    }
-
-                    //System.out.println("No of swith cases : " + countswitch);
-                    //String variablePat = "\\bfloat+([\\s][_$a-zA-Z])\\w+|\\bdouble+([\\s][_$a-zA-Z])\\w+|\\bint+([\\s][_$a-zA-Z])\\w+";
-                    //                    int line_i_length=lines[i].length();
-                    //                Pattern pat = Pattern.compile(variablePat);
-                    //                Matcher patternMatcher = pat.matcher(lines[i]);
-                    //                count_variable = 0;
-                    //                while (patternMatcher.find()) {
-                        //                    count_variable++;
-                        //                    System.out.println("Wtcs: " + count_variable + " : "
-                            //                            + patternMatcher.start() + " - " + patternMatcher.end());
+                          //                            + patternMatcher.start() + " - " + patternMatcher.end());
                         //                }
-                    Object[] row = {i, lines[i], 0};
+                    Object[] row = {i + 1 , lines[i], Nkw, Nid, Nop, Nnv, Nsl, Cs};
 
                     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 

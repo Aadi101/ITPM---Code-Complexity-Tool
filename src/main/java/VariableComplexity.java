@@ -16,18 +16,23 @@ import java.util.StringTokenizer;
  * @author ISHU
  */
 public class VariableComplexity {
-    
     ArrayList<String> returnValues = new ArrayList<>();
-    
-    Method [] methodList;
     Field [] fieldList;
-    
+    Method [] methodList;
     Controller ctrl = new Controller();
-    
     String [] primitiveDataTypes = ctrl.getPrimitiveDataTypes();
     String [] ignoreElements = ctrl.getIgnore();
     
-    int Wvs,Wpdtv,Npdtv,Wcdtv,Ncdtv;
+    /*
+    Cv = Complexity of a program statement due to its variables 
+    Wvs = Weight due to variable scope 
+    Wpdtv = Weight of primitive data type variables 
+    Npdtv = Number of primitive data type variables 
+    Wcdtv = Weight of composite data type variables 
+    Ncdtv = Number of composite data type variables 
+    */
+    
+    int Wvs,Wpdtv,Npdtv,Wcdtv,Ncdtv = 0;
     
     public ArrayList<String> VariableComplexityInitializer(String [] str) throws FileNotFoundException, IOException
     {
@@ -80,5 +85,4 @@ public class VariableComplexity {
         return returnValues;
         
     }
-    
 }
