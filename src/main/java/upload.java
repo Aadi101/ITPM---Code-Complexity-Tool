@@ -1,5 +1,12 @@
 
 
+import Size.MethodTable;
+import Size.VariableComplexity;
+import Size.SizeTable;
+import Size.VariableTable;
+import ControlStructure.ControlStruc;
+import Inheritance.Inherit;
+import Coupling.CouplingN;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

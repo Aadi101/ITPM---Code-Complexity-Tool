@@ -1,13 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package Inheritance;
 
-/**
- *
- * @author Asus
- */
 import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -26,18 +17,34 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-public class VariableTable extends javax.swing.JFrame {
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Samanmali
+ */
+public class Inheritance extends javax.swing.JFrame {
 
     /**
-     * Creates new form VariableTable
+     * Creates new form Inheritance
      */
-    public VariableTable() {
+    public Inheritance() {
         initComponents();
+        //showData();
     }
-    public VariableTable(String para) {
+    
+    public Inheritance(String para) {
         initComponents();
         
         jTextArea1.setText(para);
+    }
+
+    Inheritance(String total, int totalIndirect, int totalDirect, int totalCi) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -82,10 +89,10 @@ public class VariableTable extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Measuring the complexity of a program statement due to type of Variable  ");
+        jLabel3.setText("Measuring the complexity of a program statement due to inheritance  ");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel4.setText("Variable");
+        jLabel4.setText("Inheritance");
 
         jButton11.setBackground(new java.awt.Color(0, 153, 102));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -101,7 +108,7 @@ public class VariableTable extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Line No", "Program statements", "Wvs", "Npdtv", "Ncdtv", "Cv"
+                "Count", "Class Name", "No Of Direct Inheritance", "No of Indirect Inheritance", "Total Inheritance", "Ci"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -110,49 +117,49 @@ public class VariableTable extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(536, 536, 536))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(536, 536, 536))
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 559, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(29, 29, 29))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(558, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,6 +182,7 @@ public class VariableTable extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser chooser = new JFileChooser();
         chooser.setMultiSelectionEnabled(true);
@@ -197,7 +205,7 @@ public class VariableTable extends javax.swing.JFrame {
             try {
                 reader = new FileReader(f);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Inheritance.class.getName()).log(Level.SEVERE, null, ex);
             }
             BufferedReader br = new BufferedReader(reader);
             String line;
@@ -206,17 +214,19 @@ public class VariableTable extends javax.swing.JFrame {
                     jTextArea1.append(line + "\n");
                 }
             } catch (IOException ex) {
-                Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Inheritance.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Inheritance.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // Load table data
 
@@ -233,22 +243,86 @@ public class VariableTable extends javax.swing.JFrame {
             //System.out.println(result);
             System.out.println(lineCount);
 
-//            for (int i = 0; i < lineCount; i++) {
+            for (int i = 0; i < lineCount; i++) {
 
-                try {
-                    int Wvs,Wpdtv,Npdtv,Wcdtv,Ncdtv = 0;
-                    VariableComplexity variableComplex = new VariableComplexity();
-                    ArrayList<String> vcomplex = variableComplex.VariableComplexityInitializer(lines);
-                    
-//                    Object[] row = {i, lines[i], 0};
+                String words[] = lines[i].split("\\s");
+
+                int count = 0;  //variable to get the total complexity
+                
+                
+
+                //int count_variable = 0;
+                //                String codeFirst = fullCode6.replaceAll("\".*\"", ""); //remove double quotes from the code
+                //                String codeNext = codeFirst.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+                //                String codeFinal = codeNext.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+                //System.out.println(codeFinal);
+                //        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
+                //      for (SingleLine singleLine : statementList) {
+                    //count if conditions, logical and bitwise operators
+//                    CountConditions getIf = new CountConditions(fullCode6, "if", 1);
+//                    count = count + getIf.getCount();
+
+                    //System.out.println("No. of if Conditional Inheritance with logical and/or bitwise operators: " + countif);
+                    //count while conditions
+//                    CountConditions getWhile = new CountConditions(fullCode6, "while", 2);
+//                    count = count + getWhile.getCount();
+
+                    //System.out.println("No. of while Iterative Inheritance with logical and/or bitwise operators: " + countwhile);
+                    //count for conditions
+//                    CountConditions getFor = new CountConditions(fullCode6, "for", 2);
+//                    count = count + getFor.getCountForCatch();
+
+                    //System.out.println("No. of for Iterative Inheritance with logical and/or bitwise operators: " + countfor);
+                    //count catch conditions
+//                    CountConditions getCatch = new CountConditions(fullCode6, "catch", 1);
+//                    count = count + getCatch.getCountForCatch();
+
+                    //System.out.println("No. of catch statements: " + countcatch);
+                    //count case blocks in switch
+                    String[] wordsSwitch = fullCode6.split("switch"); //split from switch
+
+                    //get rest words one by one
+                    for (int j = 0; j < wordsSwitch.length; j++) {
+
+                        //wordsSwitch[j] = wordsSwitch[j] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
+
+                        //                System.out.println(wordsSwitch[j]);
+                        //get switch statements which only have brackets next to it
+                        if (wordsSwitch[j].charAt(0) == '(' || wordsSwitch[j].charAt(1) == '(') {
+
+                            //get content inside curly brackets using a stack
+//                            CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[j]);
+//                            String getSwitch = brackets.getCurly();
+
+                            //System.out.println(getSwitch + "SWITCH");
+                            //count case blocks
+//                            Pattern pSwitch = Pattern.compile("case");
+//                            Matcher mSwitch = pSwitch.matcher(getSwitch);
+
+//                            while (mSwitch.find()) {
+//                                ++count; //increment count
+//                            }
+
+                        }
+                    }
+                    //System.out.println("No of swith cases : " + countswitch);
+                    //String variablePat = "\\bfloat+([\\s][_$a-zA-Z])\\w+|\\bdouble+([\\s][_$a-zA-Z])\\w+|\\bint+([\\s][_$a-zA-Z])\\w+";
+                    //                    int line_i_length=lines[i].length();
+                    //                Pattern pat = Pattern.compile(variablePat);
+                    //                Matcher patternMatcher = pat.matcher(lines[i]);
+                    //                count_variable = 0;
+                    //                while (patternMatcher.find()) {
+                        //                    count_variable++;
+                        //                    System.out.println("found: " + count_variable + " : "
+                            //                            + patternMatcher.start() + " - " + patternMatcher.end());
+                        //                }
+                    Object[] row = {i, lines[i], 0};
+
                     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//                    model.addRow(row);
-                } catch (IOException ex) {
-                    Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                }
 
-//            }
+                    model.addRow(row);
+                }
+            }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
@@ -268,22 +342,22 @@ public class VariableTable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VariableTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VariableTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VariableTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VariableTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VariableTable().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Inheritance().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
