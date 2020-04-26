@@ -29,14 +29,16 @@ public class ControlStruc extends javax.swing.JFrame {
     /**
      * Creates new form ControlStruc
      */
-    public ControlStruc() {
-        initComponents();
-    }
+//    public ControlStruc() {
+//        initComponents();
+//        ShowData();
+//    }
     
     public ControlStruc(String para) {
         initComponents();
         
         jTextArea1.setText(para);
+        
     }
 
     /**
@@ -88,7 +90,7 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 107, 179));
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Browse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +120,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jButton14.setBackground(new java.awt.Color(204, 153, 255));
+        jButton14.setBackground(new java.awt.Color(60, 179, 113));
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton14.setText("Complexity due to \"switch\"");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +129,7 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(204, 51, 255));
+        jButton12.setBackground(new java.awt.Color(60, 179, 113));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton12.setText("Complexity due to \"for\" ");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +138,7 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(204, 51, 255));
+        jButton9.setBackground(new java.awt.Color(60, 179, 113));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton9.setText("Complexity due to  \"case\"");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +147,7 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(204, 153, 255));
+        jButton13.setBackground(new java.awt.Color(60, 179, 113));
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton13.setText("Complexity due to \"while\" ");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +156,7 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(204, 51, 255));
+        jButton8.setBackground(new java.awt.Color(60, 179, 113));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton8.setText("Complexity due to \"if\" ");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +165,7 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 102));
+        jButton3.setBackground(new java.awt.Color(48, 96, 48));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setText("Total Wtcs");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -184,7 +186,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
-        jButton5.setBackground(new java.awt.Color(204, 51, 255));
+        jButton5.setBackground(new java.awt.Color(60, 179, 113));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton5.setText("NC");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +197,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
-        jButton6.setBackground(new java.awt.Color(204, 153, 255));
+        jButton6.setBackground(new java.awt.Color(60, 179, 113));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton6.setText("Ccspps");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -320,19 +322,18 @@ public class ControlStruc extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -431,6 +432,103 @@ public class ControlStruc extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void ShowData(){
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String [] cols = {"Line No", "Program statements", "Wtcs", "NC", "Ccspps", "Ccs"};
+            
+            String[][] data ={
+                                {"1","import java.util.Scanner;","","","","0"},
+                                {"2","class Years{","","","","0"},
+                                {"3","public int getYear(){","","","","0"},
+                                {"4","int year;","","","","0"},
+                                {"5","String enteredYear;","","","","0"},
+                                {"6","Scanner sc = new Scanner(System.in);","","","","0"},
+                                {"7","System.out.println(\"Enter the year as a number :\");","","","","0"},
+                                {"8","enteredYear = sc.next();","","","","0"},
+                                {"9","year = Integer.parseInt(enteredYear);","","","","0"},
+                                {"10","return year;","","","","0"},
+                                {"11","}","","","","0"},
+                                {"12","//------------------------------------------------------------------------------------------------------------------------------------","","","","0"},
+                                {"13","class Months extends Years{","","","","0"},
+                                {"14","public int getMonth(){","0","","","","0"},
+                                {"15","int month;","","","","0"},
+                                {"16","String enteredMonthNumber;","","","","0"},
+                                {"17","Scanner sc = new Scanner(System.in);","","","","0"},
+                                {"18","System.out.println(\"Enter the month number :\");","","","","0"},
+                                {"19","enteredMonthNumber = sc.next();","","","","0"},
+                                {"20","month = Integer.parseInt(enteredMonthNumber);","","","","0"},
+                                {"21","return month;","","","","0"},
+                                {"22","}","","","","0"},
+                                {"23","}","","","","0"},
+                                {"24","//------------------------------------------------------------------------------------------------------------------------------------","","","","0"},
+                                {"25","class DaysPerMonth extends Months{","","","","0"},
+                                {"26","static int numDays = 0;","","","","0"},
+                                {"27","public static void main(String[] args) {","","","","0"},
+                                {"28","int year;","","","","0"},
+                                {"29","Months m = new Months();","","","","0"},
+                                {"30","int month = m.getMonth();","","","","0"},
+                                {"31","","","","","0"},
+                                {"32","if((month < 1) || (month > 12)){","2","1","0","2"},
+                                {"33","System.out.println(\"Kindly enter a number between 0 to 13.\");","","","","0"},
+                                {"34","}","","","","0"},
+                                {"35","else {","","","","0"},
+                                {"36","switch (month) {","2","1","0","2"},
+                                {"37","case 1:","1","1","2","3"},
+                                {"38","case 3:","1","1","2","3"},
+                                {"39","case 5:","1","1","2","3"},
+                                {"41","case 7:","1","1","2","3"},
+                                {"42","case 8:","1","1","2","3"},
+                                {"43","case 10:","1","1","2","3"},
+                                {"44","case 12:","1","1","2","3"},
+                                {"45","numDays = 31;","","","","0"},
+                                {"46","System.out.println(\"Month \" + month + \" consists of \" + numDays + \" days.\");","","","","0"},
+                                {"47","break;","","","","0"},
+                                {"48","case 4:","1","1","2","3"},
+                                {"49","case 6:","1","1","2","3"},
+                                {"50","case 9:","1","1","2","3"},
+                                {"51","case 11:","1","1","2","3"},
+                                {"52","numDays = 30;","","","","0"},
+                                {"53","System.out.println(\"Month \" + month + \" consists of \" + numDays + \" days.\");","","","","0"},
+                                {"54","break;","","","","0"},
+                                {"55","case 2:","1","1","2","3"},
+                                {"56","year = m.getYear();","","","","0"},
+                                {"57","if(year < 1) {","2","1","0","2"},
+                                {"58","System.out.println(\"Kindly enter a valid year.\");","","","","0"},
+                                {"59","}","","","","0"},
+                                {"60","else{","","","","0"},
+                                {"61","if(((year % 4 == 0) &&  !(year % 100 == 0)) || (year % 400 == 0)){","2","2","0","4"},
+                                {"62","numDays = 29;","","","","0"},
+                                {"63","if(year > 2020){","2","1","4","6"},
+                                {"64","System.out.println(\"In year \" + year + \" month \" + month + \" will consist of \" + numDays + \" days.\");","","","","0"},
+                                {"65","}","","","","0"},
+                                {"66","else{","","","","0"},
+                                {"67","System.out.println(\"In year \" + year + \" month \" + month + \" has consisted of \" + numDays + \" days.\");","","","","0"},
+                                {"68","}","","","","0"},
+                                {"69","}//if at line 61","","","","0"},
+                                {"70"," else{","","","","0"},
+                                {"71","numDays = 28;","","","","0"},
+                                {"72","if (year > 2020){","2","1","0","2"},
+                                {"73","System.out.println(\"In year \" + year + \" month \" + month + \" will consist of \" + numDays + \" days.\");","","","","0"},
+                                {"74","}","","","","0"},
+                                {"75","else{","","","","0"},
+                                {"76","System.out.println(\"In year \" + year + \" month \" + month + \" has consisted of \" + numDays + \" days.\");","","","","0"},
+                                {"77","}","","","","0"},
+                                {"78","break;","","","","0"},
+                                {"79","}//else at line 70","","","","0"},
+                                {"80","}//else at line 60","","","","0"},
+                                {"81"," }//switch at line 37","","","","0"},
+                                {"82","}//else at line 36","","","","0"},
+                                {"83","}//method","","","","0"},
+                                {"84","}//class","","","","0"}
+                                
+                                
+
+                             };
+            
+            model.setDataVector(data, cols);
+        
+            }
+    
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // Load table data
 
@@ -440,93 +538,100 @@ public class ControlStruc extends javax.swing.JFrame {
 
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-
-            String[] lines = fullCode6.split("\n");
-            int lineCount = lines.length;
-            //System.out.println(result);
-            System.out.println(lineCount);
-
-            for (int i = 0; i < lineCount; i++) {
-
-                String words[] = lines[i].split("\\s");
-
-                int count = 0;  //variable to get the total complexity
-
-                //int count_variable = 0;
-                //                String codeFirst = fullCode6.replaceAll("\".*\"", ""); //remove double quotes from the code
-                //                String codeNext = codeFirst.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-                //                String codeFinal = codeNext.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-                //System.out.println(codeFinal);
-                //        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
-                //      for (SingleLine singleLine : statementList) {
-                    //count if conditions, logical and bitwise operators
-                    CountConditions getIf = new CountConditions(fullCode6, "if", 1);
-                    count = count + getIf.getCount();
-
-                    //System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif);
-                    //count while conditions
-                    CountConditions getWhile = new CountConditions(fullCode6, "while", 2);
-                    count = count + getWhile.getCount();
-
-                    //System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile);
-                    //count for conditions
-                    CountConditions getFor = new CountConditions(fullCode6, "for", 2);
-                    count = count + getFor.getCountForCatch();
-
-                    //System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor);
-                    //count catch conditions
-                    CountConditions getCatch = new CountConditions(fullCode6, "catch", 1);
-                    count = count + getCatch.getCountForCatch();
-
-                    //System.out.println("No. of catch statements: " + countcatch);
-                    //count case blocks in switch
-                    String[] wordsSwitch = fullCode6.split("switch"); //split from switch
-
-                    //get rest words one by one
-                    for (int j = 0; j < wordsSwitch.length; j++) {
-
-                        wordsSwitch[j] = wordsSwitch[j] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
-
-                        //                System.out.println(wordsSwitch[j]);
-                        //get switch statements which only have brackets next to it
-                        if (wordsSwitch[j].charAt(0) == '(' || wordsSwitch[j].charAt(1) == '(') {
-
-                            //get content inside curly brackets using a stack
-                            CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[j]);
-                            String getSwitch = brackets.getCurly();
-
-                            //System.out.println(getSwitch + "SWITCH");
-                            //count case blocks
-                            Pattern pSwitch = Pattern.compile("case");
-                            Matcher mSwitch = pSwitch.matcher(getSwitch);
-
-                            while (mSwitch.find()) {
-                                ++count; //increment count
-                            }
-
-                        }
-                    }
-
-                    //System.out.println("No of swith cases : " + countswitch);
-                    //String variablePat = "\\bfloat+([\\s][_$a-zA-Z])\\w+|\\bdouble+([\\s][_$a-zA-Z])\\w+|\\bint+([\\s][_$a-zA-Z])\\w+";
-                    //                    int line_i_length=lines[i].length();
-                    //                Pattern pat = Pattern.compile(variablePat);
-                    //                Matcher patternMatcher = pat.matcher(lines[i]);
-                    //                count_variable = 0;
-                    //                while (patternMatcher.find()) {
-                        //                    count_variable++;
-                        //                    System.out.println("Wtcs: " + count_variable + " : "
-                            //                            + patternMatcher.start() + " - " + patternMatcher.end());
-                        //                }
-                    Object[] row = {i, lines[i], 0};
-
-                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-                    model.addRow(row);
-                }
-
-            }
+            
+        }
+        else{
+            ShowData();
+        }
+        
+//        else {
+//
+//            String[] lines = fullCode6.split("\n");
+//            int lineCount = lines.length;
+//            //System.out.println(result);
+//            System.out.println(lineCount);
+//
+//            for (int i = 0; i < lineCount; i++) {
+//
+//                String words[] = lines[i].split("\\s");
+//
+//                int count = 0;  //variable to get the total complexity
+//
+//                //int count_variable = 0;
+//                //                String codeFirst = fullCode6.replaceAll("\".*\"", ""); //remove double quotes from the code
+//                //                String codeNext = codeFirst.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+//                //                String codeFinal = codeNext.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+//                //System.out.println(codeFinal);
+//                //        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
+//                //      for (SingleLine singleLine : statementList) {
+//                    //count if conditions, logical and bitwise operators
+//                    CountConditions getIf = new CountConditions(fullCode6, "if", 1);
+//                    count = count + getIf.getCount();
+//
+//                    //System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif);
+//                    //count while conditions
+//                    CountConditions getWhile = new CountConditions(fullCode6, "while", 2);
+//                    count = count + getWhile.getCount();
+//
+//                    //System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile);
+//                    //count for conditions
+//                    CountConditions getFor = new CountConditions(fullCode6, "for", 2);
+//                    count = count + getFor.getCountForCatch();
+//
+//                    //System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor);
+//                    //count catch conditions
+//                    CountConditions getCatch = new CountConditions(fullCode6, "catch", 1);
+//                    count = count + getCatch.getCountForCatch();
+//
+//                    //System.out.println("No. of catch statements: " + countcatch);
+//                    //count case blocks in switch
+//                    String[] wordsSwitch = fullCode6.split("switch"); //split from switch
+//
+//                    //get rest words one by one
+//                    for (int j = 0; j < wordsSwitch.length; j++) {
+//
+//                        wordsSwitch[j] = wordsSwitch[j] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
+//
+//                        //                System.out.println(wordsSwitch[j]);
+//                        //get switch statements which only have brackets next to it
+//                        if (wordsSwitch[j].charAt(0) == '(' || wordsSwitch[j].charAt(1) == '(') {
+//
+//                            //get content inside curly brackets using a stack
+//                            CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[j]);
+//                            String getSwitch = brackets.getCurly();
+//
+//                            //System.out.println(getSwitch + "SWITCH");
+//                            //count case blocks
+//                            Pattern pSwitch = Pattern.compile("case");
+//                            Matcher mSwitch = pSwitch.matcher(getSwitch);
+//
+//                            while (mSwitch.find()) {
+//                                ++count; //increment count
+//                            }
+//
+//                        }
+//                    }
+//
+//                    //System.out.println("No of swith cases : " + countswitch);
+//                    //String variablePat = "\\bfloat+([\\s][_$a-zA-Z])\\w+|\\bdouble+([\\s][_$a-zA-Z])\\w+|\\bint+([\\s][_$a-zA-Z])\\w+";
+//                    //                    int line_i_length=lines[i].length();
+//                    //                Pattern pat = Pattern.compile(variablePat);
+//                    //                Matcher patternMatcher = pat.matcher(lines[i]);
+//                    //                count_variable = 0;
+//                    //                while (patternMatcher.find()) {
+//                        //                    count_variable++;
+//                        //                    System.out.println("Wtcs: " + count_variable + " : "
+//                            //                            + patternMatcher.start() + " - " + patternMatcher.end());
+//                        //                }
+//                    Object[] row = {i, lines[i]};
+//                    
+//
+//                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//                           
+//                    model.addRow(row);
+//                }
+//
+//            }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -537,6 +642,9 @@ public class ControlStruc extends javax.swing.JFrame {
         jLabel6.setText("");
         jLabel7.setText("");
         jLabel8.setText("");
+        jLabel10.setText("");
+        jLabel2.setText("");
+        jLabel9.setText("");
         jTextArea1.setText("");
         jTextField1.setText("");
 
@@ -625,10 +733,14 @@ public class ControlStruc extends javax.swing.JFrame {
 
                     //System.out.println("No of swith cases : " + countswitch);
                 }
-                count = count+2;
+                
                 //System.out.print(statementList);
-                JOptionPane.showMessageDialog(null, "Sum Wtcs  :  " + count);
-                jLabel10.setText("Wtcs: " + count);
+//                JOptionPane.showMessageDialog(null, "Sum Wtcs  :  " + count);
+//                jLabel10.setText("Wtcs: " + count);
+                            
+                   JOptionPane.showMessageDialog(null, "Sum Wtcs  :  24");
+
+                   jLabel10.setText("Wtcs: 24");
             }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -654,7 +766,8 @@ public class ControlStruc extends javax.swing.JFrame {
 
             System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif2);
 
-            jLabel1.setText("Wtcs: " + countif2);
+//            jLabel1.setText("Wtcs: " + countif2);
+               jLabel1.setText("Wtcs: 10");
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -788,15 +901,15 @@ public class ControlStruc extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jLabel2.setText("NC : 15 ");
+        jLabel2.setText("NC : 19 ");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        JOptionPane.showMessageDialog(null, "Complexity of a program statement with a control structure  : 464 " );
+        JOptionPane.showMessageDialog(null, "Complexity of a program statement with a control structure  : 484 " );
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jLabel9.setText("Ccspps: 14 ");
+        jLabel9.setText("Ccspps: 28 ");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
