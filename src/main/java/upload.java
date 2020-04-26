@@ -1,5 +1,12 @@
 
 
+import Size.MethodTable;
+import Size.VariableComplexity;
+import Size.SizeTable;
+import Size.VariableTable;
+import ControlStructure.ControlStruc;
+import Inheritance.Inherit;
+import Coupling.CouplingN;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -284,11 +291,11 @@ public class upload extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         //--------------------------------------------------Coupling----------------------------------------------------------
-        Coupling up = new Coupling();
+        CouplingN up = new CouplingN();
         up.setVisible(true);
         
-        String msg = jTextArea1.getText();
-        new Coupling(msg).setVisible(true);
+//        String msg = jTextArea1.getText();
+//        new Coupling(msg).setVisible(true);
         // Load table data
 
         String fullCode6 = jTextArea1.getText();
@@ -323,11 +330,11 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         
-        Inheritance up = new Inheritance();
+        Inherit up = new Inherit();
         up.setVisible(true);
         
-        String msg = jTextArea1.getText();
-        new Inheritance(msg).setVisible(true);
+//        String msg = jTextArea1.getText();
+//        new Inheritance(msg).setVisible(true);
         
         // Load table data
 
