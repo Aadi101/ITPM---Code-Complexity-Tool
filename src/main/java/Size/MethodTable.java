@@ -5,8 +5,8 @@ package Size;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import Coupling.CheckInsideBrackets;
-import Coupling.CountConditions;
+import ControlStructure.CheckInsideBrackets;
+import ControlStructure.CountConditions;
 import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.File;

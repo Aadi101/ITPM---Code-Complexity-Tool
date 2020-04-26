@@ -1,5 +1,7 @@
 package Coupling;
 
+import ControlStructure.CountConditions;
+import ControlStructure.CheckInsideBrackets;
 import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.File;

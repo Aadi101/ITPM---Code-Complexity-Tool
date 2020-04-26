@@ -5,6 +5,7 @@ package Size;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import ControlStructure.Controller;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

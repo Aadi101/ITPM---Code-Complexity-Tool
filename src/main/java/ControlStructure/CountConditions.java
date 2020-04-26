@@ -1,4 +1,6 @@
-package Coupling;
+package ControlStructure;
+
+import ControlStructure.CheckInsideBrackets;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
