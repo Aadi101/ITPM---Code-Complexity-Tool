@@ -21,7 +21,7 @@ public class Main extends javax.swing.JFrame {
     public ClassObj classes[];
     DefaultTableModel model;
     int selectedIndex;
-    /**
+    /** 
      * Creates new form Main
      */
     public Main() {
@@ -45,11 +45,12 @@ public class Main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        selectedFile = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,14 +78,19 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setText("Classes");
 
-        jButton3.setText("Selected File");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        selectedFile.setText("Selected File");
+        selectedFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                selectedFileActionPerformed(evt);
             }
         });
 
         jButton4.setText("Full Project");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,6 +115,13 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Complexity Calculator");
 
+        jButton5.setText("Print Functions");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,8 +138,9 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(selectedFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(19, 19, 19)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -140,8 +154,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -159,11 +172,13 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(selectedFile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4))
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -230,11 +245,21 @@ public class Main extends javax.swing.JFrame {
 
             for(int j = 0; j < classes[i].getMethodCount(); j++){
                 System.out.println("--- Method :"+j+" -> "+classes[i].getFunctionName(j));
-                classes[i].assignMethodContent(ex.extractFunctionBody(classes[i].getContent(), classes[i].getDepthInfo(), classes[i].getFunctionName(j)), j);
+                classes[i].assignMethodContent(ex.extractFunctionBody(classes[i].getContent(), classes[i].getDepthInfo(), classes[i].getFunctionName(j)), j,classes[i].getFunctionName(j));
             }
 
+            
+            classes[i].setRecursiveFunctions(ex.extractRecursiveFunctionNames(classes[i].getAllMethods()));
+            classes[i].setRegularFunctions(ex.extractRegularFunctionNames(classes[i].getFunctions(), classes[i].getRecursiveFunctionsList()));
+            
+            System.out.println("recursiveCount : " + classes[i].getRecursiveFunctionsList().size());
+            System.out.println("regularCount : " + classes[i].getRegularFunctionsList().size());
+            System.out.println(classes[i].getRecursiveFunctionsList());
+            System.out.println(classes[i].getRegularFunctionsList());
+            
             System.out.println(" -------------- Class "+i+" Complete --------------  \n");
-
+            
+            
         }
 
         int rowCount = model.getRowCount();
@@ -254,9 +279,166 @@ public class Main extends javax.swing.JFrame {
         selectedIndex = jTable1.getSelectedRow();
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void selectedFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectedFileActionPerformed
+        int index = jTable1.getSelectedRow();
+        System.out.println("Selected row : "+index);
+        
+        Calculate calc = new Calculate(classes[index].getRegularFunctionsList(),
+                                        classes[index].getRecursiveFunctionsList(),
+                                        classes[index].getAllMethods(),
+                                        classes[index].getGlobalVariables());
+        
+        int Nrmcrms = calc.Nrmcrms_recursiveToRecursive();
+        int Nmcms = calc.Nmcms_regularToRegular();
+        int Nmcrms = calc.Nmcrms_regularToRecursive();
+        int Nrmcms = calc.Nrmcms_recursiveToRegular();
+        
+        int Nmrgvs = calc.Nmrgvs_regularToGlobalVariables();
+        int Nrmrgvs = calc.Nrmrgvs_recursiveToGlobalVariables();
+        
+        //Weights
+        int Wrmcrms = 1;
+        int Wmcms = 1;
+        int Wmcrms = 1;
+        int Wrmcms = 1;
+        int Wmrgvs = 1;
+        int Wrmrgvs = 1;
+        
+        //Calculating Complexity
+        Nrmcrms = Nrmcrms * Wrmcrms;
+        Nmcms = Nmcms * Wmcms;
+        Nmcrms = Nmcrms * Wmcrms; 
+        Nrmcms = Nrmcms * Wrmcms;
+        Nmrgvs = Nmrgvs * Wmrgvs; 
+        Nrmrgvs = Nrmrgvs * Wrmrgvs;
+        
+        System.out.println("Nrmcrms Nmcms Nmcrms Nrmcms Nmrgvs Nrmrgvs : "+Nrmcrms+" "+Nmcms+" "+Nmcrms+" "+Nrmcms+" "+Nmrgvs+" "+Nrmrgvs);
+        
+        calc.CC(selectedIndex, classes);
+        
+        int Nmcmd = calc.getNmcmd();
+        int Nmcrmd = calc.getNmcrmd();
+        int Nrmcrmd = calc.getNrmcrmd();
+        int Nrmcmd= calc.getNrmcmd();
+        int Nmrgvd = calc.getNmrgvd();
+        int Nrmrgvd = calc.getNrmrgvd();
+        
+        //Weights
+        int Wmcmd = 3;
+        int Wmcrmd = 4;
+        int Wrmcrmd = 5;
+        int Wrmcmd= 4;
+        int Wmrgvd = 2;
+        int Wrmrgvd = 2;
+         
+        
+        Nmcmd = Nmcmd * Wmcmd;
+        Nmcrmd = Nmcrmd * Wmcrmd;
+        Nrmcrmd = Nrmcrmd * Wrmcrmd;
+        Nrmcmd = Nrmcmd * Wrmcmd;
+        Nmrgvd = Nmrgvd * Wmrgvd;
+        Nrmrgvd = Nrmrgvd * Wrmrgvd ;
+        
+        System.out.println("Nmcmd Nmcrmd Nrmcrmd Nrmcmd Nmrgvd Nrmrgvd : "+ Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmcmd+","+Nmrgvd+","+Nrmrgvd);
+        
+        
+    }//GEN-LAST:event_selectedFileActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int Index = jTable1.getSelectedRow();
+        Method [] m;
+        
+        m = classes[Index].getAllMethods();
+        
+        for(int i = 0; i < m.length ; i++){
+        
+            System.out.println("----");
+            
+            System.out.println("Name: "+m[i].MethodName);
+            System.out.println(m[i].getMethod());
+            
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int size = classes.length;
+        
+        ArrayList<String> complexities = new ArrayList();
+        //complexities.add("Nrmcrms,Nmcms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmrgvd,Nmrgvd,Nrmcmd");
+        
+        //Do the same thing over all the classes
+        for(int a = 0 ; a<size; a++){
+        
+            Calculate calc = new Calculate(classes[a].getRegularFunctionsList(),
+                                        classes[a].getRecursiveFunctionsList(),
+                                        classes[a].getAllMethods(),
+                                        classes[a].getGlobalVariables());
+        
+            int Nrmcrms = calc.Nrmcrms_recursiveToRecursive();
+            int Nmcms = calc.Nmcms_regularToRegular();
+            int Nmcrms = calc.Nmcrms_regularToRecursive();
+            int Nrmcms = calc.Nrmcms_recursiveToRegular();
+
+            int Nmrgvs = calc.Nmrgvs_regularToGlobalVariables();
+            int Nrmrgvs = calc.Nrmrgvs_recursiveToGlobalVariables();
+
+            //Weights
+            int Wrmcrms = 1;
+            int Wmcms = 1;
+            int Wmcrms = 1;
+            int Wrmcms = 1;
+            int Wmrgvs = 1;
+            int Wrmrgvs = 1;
+
+            //Calculating Complexity
+            Nrmcrms = Nrmcrms * Wrmcrms;
+            Nmcms = Nmcms * Wmcms;
+            Nmcrms = Nmcrms * Wmcrms; 
+            Nrmcms = Nrmcms * Wrmcms;
+            Nmrgvs = Nmrgvs * Wmrgvs; 
+            Nrmrgvs = Nrmrgvs * Wrmrgvs;
+
+            System.out.println("Nrmcrms Nmcms Nmcrms Nrmcms Nmrgvs Nrmrgvs : "+Nrmcrms+" "+Nmcms+" "+Nmcrms+" "+Nrmcms+" "+Nmrgvs+" "+Nrmrgvs);
+
+            calc.CC(selectedIndex, classes);
+
+            int Nmcmd = calc.getNmcmd();
+            int Nmcrmd = calc.getNmcrmd();
+            int Nrmcrmd = calc.getNrmcrmd();
+            int Nrmcmd= calc.getNrmcmd();
+            int Nmrgvd = calc.getNmrgvd();
+            int Nrmrgvd = calc.getNrmrgvd();
+
+            //Weights
+            int Wmcmd = 3;
+            int Wmcrmd = 4;
+            int Wrmcrmd = 5;
+            int Wrmcmd= 4;
+            int Wmrgvd = 2;
+            int Wrmrgvd = 2;
+            
+            Nmcmd = Nmcmd * Wmcmd;
+            Nmcrmd = Nmcrmd * Wmcrmd;
+            Nrmcrmd = Nrmcrmd * Wrmcrmd;
+            Nrmcmd = Nrmcmd * Wrmcmd;
+            Nmrgvd = Nmrgvd * Wmrgvd;
+            Nrmrgvd = Nrmrgvd * Wrmrgvd ;
+
+            System.out.println("Nmcmd Nmcrmd Nrmcrmd Nrmcmd Nmrgvd Nrmrgvd : "+ Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmcmd+","+Nmrgvd+","+Nrmrgvd);
+            //(Nrmcrms+","+Nmcms+","+Nmcrms+","+Nrmcms+","+Nmrgvs+","+Nrmrgvs+","+Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmrgvd+","+Nmrgvd)
+            complexities.add(Nrmcrms+","+Nmcms+","+Nmcrms+","+Nrmcms+","+Nmrgvs+","+Nrmrgvs+","+Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmrgvd+","+Nmrgvd);
+        }
+        
+        System.out.println("Final Complexities");
+        
+        System.out.println("Nrmcrms,Nmcms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmrgvd,Nmrgvd,Nrmcmd");
+        
+        for(int i = 0; i< complexities.size(); i++){
+            System.out.println("Class "+i+" :"+complexities.get(i));
+        }
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,13 +478,14 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton selectedFile;
     // End of variables declaration//GEN-END:variables
 }
