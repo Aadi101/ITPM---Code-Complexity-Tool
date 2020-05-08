@@ -121,6 +121,18 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(3).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(3).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(4).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(4).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(5).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(5).setMaxWidth(100);
+        }
 
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -138,18 +150,19 @@ public class ControlStruc extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -159,26 +172,25 @@ public class ControlStruc extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
         );
 
@@ -247,96 +259,7 @@ public class ControlStruc extends javax.swing.JFrame {
     public void ShowData() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         String[] cols = {"Line No", "Program statements", "Wtcs", "NC", "Ccspps", "Ccs"};
-
-        String[][] data = {
-            {"1", "import java.util.Scanner;", "", "", "", "0"},
-            {"2", "class Years{", "", "", "", "0"},
-            {"3", "public int getYear(){", "", "", "", "0"},
-            {"4", "int year;", "", "", "", "0"},
-            {"5", "String enteredYear;", "", "", "", "0"},
-            {"6", "Scanner sc = new Scanner(System.in);", "", "", "", "0"},
-            {"7", "System.out.println(\"Enter the year as a number :\");", "", "", "", "0"},
-            {"8", "enteredYear = sc.next();", "", "", "", "0"},
-            {"9", "year = Integer.parseInt(enteredYear);", "", "", "", "0"},
-            {"10", "return year;", "", "", "", "0"},
-            {"11", "}", "", "", "", "0"},
-            {"12", "//------------------------------------------------------------------------------------------------------------------------------------", "", "", "", "0"},
-            {"13", "class Months extends Years{", "", "", "", "0"},
-            {"14", "public int getMonth(){", "0", "", "", "", "0"},
-            {"15", "int month;", "", "", "", "0"},
-            {"16", "String enteredMonthNumber;", "", "", "", "0"},
-            {"17", "Scanner sc = new Scanner(System.in);", "", "", "", "0"},
-            {"18", "System.out.println(\"Enter the month number :\");", "", "", "", "0"},
-            {"19", "enteredMonthNumber = sc.next();", "", "", "", "0"},
-            {"20", "month = Integer.parseInt(enteredMonthNumber);", "", "", "", "0"},
-            {"21", "return month;", "", "", "", "0"},
-            {"22", "}", "", "", "", "0"},
-            {"23", "}", "", "", "", "0"},
-            {"24", "//------------------------------------------------------------------------------------------------------------------------------------", "", "", "", "0"},
-            {"25", "class DaysPerMonth extends Months{", "", "", "", "0"},
-            {"26", "static int numDays = 0;", "", "", "", "0"},
-            {"27", "public static void main(String[] args) {", "", "", "", "0"},
-            {"28", "int year;", "", "", "", "0"},
-            {"29", "Months m = new Months();", "", "", "", "0"},
-            {"30", "int month = m.getMonth();", "", "", "", "0"},
-            {"31", "", "", "", "", "0"},
-            {"32", "if((month < 1) || (month > 12)){", "2", "1", "0", "2"},
-            {"33", "System.out.println(\"Kindly enter a number between 0 to 13.\");", "", "", "", "0"},
-            {"34", "}", "", "", "", "0"},
-            {"35", "else {", "", "", "", "0"},
-            {"36", "switch (month) {", "2", "1", "0", "2"},
-            {"37", "case 1:", "1", "1", "2", "3"},
-            {"38", "case 3:", "1", "1", "2", "3"},
-            {"39", "case 5:", "1", "1", "2", "3"},
-            {"41", "case 7:", "1", "1", "2", "3"},
-            {"42", "case 8:", "1", "1", "2", "3"},
-            {"43", "case 10:", "1", "1", "2", "3"},
-            {"44", "case 12:", "1", "1", "2", "3"},
-            {"45", "numDays = 31;", "", "", "", "0"},
-            {"46", "System.out.println(\"Month \" + month + \" consists of \" + numDays + \" days.\");", "", "", "", "0"},
-            {"47", "break;", "", "", "", "0"},
-            {"48", "case 4:", "1", "1", "2", "3"},
-            {"49", "case 6:", "1", "1", "2", "3"},
-            {"50", "case 9:", "1", "1", "2", "3"},
-            {"51", "case 11:", "1", "1", "2", "3"},
-            {"52", "numDays = 30;", "", "", "", "0"},
-            {"53", "System.out.println(\"Month \" + month + \" consists of \" + numDays + \" days.\");", "", "", "", "0"},
-            {"54", "break;", "", "", "", "0"},
-            {"55", "case 2:", "1", "1", "2", "3"},
-            {"56", "year = m.getYear();", "", "", "", "0"},
-            {"57", "if(year < 1) {", "2", "1", "0", "2"},
-            {"58", "System.out.println(\"Kindly enter a valid year.\");", "", "", "", "0"},
-            {"59", "}", "", "", "", "0"},
-            {"60", "else{", "", "", "", "0"},
-            {"61", "if(((year % 4 == 0) &&  !(year % 100 == 0)) || (year % 400 == 0)){", "2", "2", "0", "4"},
-            {"62", "numDays = 29;", "", "", "", "0"},
-            {"63", "if(year > 2020){", "2", "1", "4", "6"},
-            {"64", "System.out.println(\"In year \" + year + \" month \" + month + \" will consist of \" + numDays + \" days.\");", "", "", "", "0"},
-            {"65", "}", "", "", "", "0"},
-            {"66", "else{", "", "", "", "0"},
-            {"67", "System.out.println(\"In year \" + year + \" month \" + month + \" has consisted of \" + numDays + \" days.\");", "", "", "", "0"},
-            {"68", "}", "", "", "", "0"},
-            {"69", "}//if at line 61", "", "", "", "0"},
-            {"70", " else{", "", "", "", "0"},
-            {"71", "numDays = 28;", "", "", "", "0"},
-            {"72", "if (year > 2020){", "2", "1", "0", "2"},
-            {"73", "System.out.println(\"In year \" + year + \" month \" + month + \" will consist of \" + numDays + \" days.\");", "", "", "", "0"},
-            {"74", "}", "", "", "", "0"},
-            {"75", "else{", "", "", "", "0"},
-            {"76", "System.out.println(\"In year \" + year + \" month \" + month + \" has consisted of \" + numDays + \" days.\");", "", "", "", "0"},
-            {"77", "}", "", "", "", "0"},
-            {"78", "break;", "", "", "", "0"},
-            {"79", "}//else at line 70", "", "", "", "0"},
-            {"80", "}//else at line 60", "", "", "", "0"},
-            {"81", " }//switch at line 37", "", "", "", "0"},
-            {"82", "}//else at line 36", "", "", "", "0"},
-            {"83", "}//method", "", "", "", "0"},
-            {"84", "}//class", "", "", "", "0"}
-
-        };
-
-        model.setDataVector(data, cols);
-
+        
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
