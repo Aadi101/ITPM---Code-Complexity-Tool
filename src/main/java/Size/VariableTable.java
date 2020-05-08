@@ -199,7 +199,7 @@ public class VariableTable extends javax.swing.JFrame {
             try {
                 reader = new FileReader(f);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MethodTable.class.getName()).log(Level.SEVERE, null, ex);
             }
             BufferedReader br = new BufferedReader(reader);
             String line;
@@ -208,13 +208,13 @@ public class VariableTable extends javax.swing.JFrame {
                     jTextArea1.append(line + "\n");
                 }
             } catch (IOException ex) {
-                Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MethodTable.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MethodTable.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -235,22 +235,30 @@ public class VariableTable extends javax.swing.JFrame {
             //System.out.println(result);
             System.out.println(lineCount);
 
-//            for (int i = 0; i < lineCount; i++) {
+            Variable variable = new Variable();
+//System.out.println(result);
+            for (int i = 0; i < lineCount; i++){
+                
+                int wvs = 0 ;
+                int npdtv = 0 ;
+                int ncdtv = 0 ;
+                variable.setNcdtv(0);
+                variable.setNpdtv(0);
+                variable.setWvs(0);
+                variable.setCodeLine(lines[i]);
+                variable.findVariable();
+                wvs = variable.getWvs();
+                npdtv = variable.getNpdtv();
+                ncdtv = variable.getNcdtv();
+                int cv  = wvs + npdtv + ncdtv;
+                Object[] row = {(i + 1), lines[i], wvs, npdtv, ncdtv, cv};
 
-                try {
-                    int Wvs,Wpdtv,Npdtv,Wcdtv,Ncdtv = 0;
-                    VariableComplexity variableComplex = new VariableComplexity();
-                    ArrayList<String> vcomplex = variableComplex.VariableComplexityInitializer(lines);
-                    
-//                    Object[] row = {i, lines[i], 0};
-                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//                    model.addRow(row);
-                } catch (IOException ex) {
-                    Logger.getLogger(VariableTable.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                }
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
-//            }
+                model.addRow(row);
+            }
+
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
