@@ -61,24 +61,6 @@ public class ControlStruc extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -120,176 +102,6 @@ public class ControlStruc extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel4.setText("Control Structure");
-
-        jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
-
-        jButton14.setBackground(new java.awt.Color(60, 179, 113));
-        jButton14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton14.setText("Complexity due to \"switch\"");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-
-        jButton12.setBackground(new java.awt.Color(60, 179, 113));
-        jButton12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton12.setText("Complexity due to \"for\" ");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setBackground(new java.awt.Color(60, 179, 113));
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton9.setText("Complexity due to  \"case\"");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton13.setBackground(new java.awt.Color(60, 179, 113));
-        jButton13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton13.setText("Complexity due to \"while\" ");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setBackground(new java.awt.Color(60, 179, 113));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton8.setText("Complexity due to \"if\" ");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(48, 96, 48));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton3.setText("Total Wtcs");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jButton5.setBackground(new java.awt.Color(60, 179, 113));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton5.setText("NC");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jButton6.setBackground(new java.awt.Color(60, 179, 113));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton6.setText("Ccspps");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton7.setBackground(new java.awt.Color(0, 153, 153));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton7.setText("Ccs = (Wtcs * NC) + Ccspps");
-        jButton7.setActionCommand("");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
-        );
 
         jButton11.setBackground(new java.awt.Color(0, 153, 102));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -337,9 +149,7 @@ public class ControlStruc extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -354,8 +164,7 @@ public class ControlStruc extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -582,7 +391,7 @@ public class ControlStruc extends javax.swing.JFrame {
                         }
                         row = new Object[]{index++, line, weight, nc, ccpps, ccs};
                     }
-//            Object[] row = {i + 1 , lines[i], Nkw, Nid, Nop, Nnv, Nsl, Cs};
+
 
                     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
@@ -598,14 +407,6 @@ public class ControlStruc extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // reset
 
-        jLabel1.setText("");
-        jLabel5.setText("");
-        jLabel6.setText("");
-        jLabel7.setText("");
-        jLabel8.setText("");
-        jLabel10.setText("");
-        jLabel2.setText("");
-        jLabel9.setText("");
         jTextArea1.setText("");
         jTextField1.setText("");
 
@@ -626,251 +427,6 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        String fullCode = jTextArea1.getText(); //get the full code from text field for complexity calculation
-
-        if (fullCode.isEmpty()) {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-
-            int count = 0;   //variable to get the total complexity
-
-            String codeFirst = fullCode.replaceAll("\".*\"", ""); //remove double quotes from the code
-            String codeNext = codeFirst.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-            String codeFinal = codeNext.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-
-            //System.out.println(codeFinal);
-            //        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
-            //      for (SingleLine singleLine : statementList) {
-            //count if conditions, logical and bitwise operators
-            CountConditions getIf = new CountConditions(codeFinal, "if", 2);
-            count = count + getIf.getCount();
-
-            //System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif);
-            //count while conditions
-            CountConditions getWhile = new CountConditions(codeFinal, "while", 3);
-            count = count + getWhile.getCount();
-
-            //System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile);
-            //count for conditions
-            CountConditions getFor = new CountConditions(codeFinal, "for", 3);
-            count = count + getFor.getCountForCatch();
-
-            //System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor);
-            //count catch conditions
-            CountConditions getCatch = new CountConditions(codeFinal, "catch", 2);
-            count = count + getCatch.getCountForCatch();
-
-            //System.out.println("No. of catch statements: " + countcatch);
-            //count case blocks in switch
-            String[] wordsSwitch = codeFinal.split("switch"); //split from switch
-
-            //get rest words one by one
-            for (int i = 0; i < wordsSwitch.length; i++) {
-
-                wordsSwitch[i] = wordsSwitch[i] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
-
-                System.out.println(wordsSwitch[i]);
-                //get switch statements which only have brackets next to it
-                if (wordsSwitch[i].charAt(0) == '(' || wordsSwitch[i].charAt(1) == '(') {
-
-                    //get content inside curly brackets using a stack
-                    CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[i]);
-                    String getSwitch = brackets.getCurly();
-
-                    //System.out.println(getSwitch + "SWITCH");
-                    //count case blocks
-                    Pattern pSwitch = Pattern.compile("case");
-                    Matcher mSwitch = pSwitch.matcher(getSwitch);
-
-                    while (mSwitch.find()) {
-                        ++count; //increment count
-                    }
-
-                }
-
-                //System.out.println("No of swith cases : " + countswitch);
-            }
-
-            //System.out.print(statementList);
-//                JOptionPane.showMessageDialog(null, "Sum Wtcs  :  " + count);
-//                jLabel10.setText("Wtcs: " + count);
-            JOptionPane.showMessageDialog(null, "Sum Wtcs  :  24");
-
-            jLabel10.setText("Wtcs: 24");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        //Complexity due to if
-
-        String fullCode2 = jTextArea1.getText(); //get the full code from text field for complexity calculation
-
-        if (fullCode2.isEmpty()) {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-            int countif2 = 0;
-
-            String codeFirst2 = fullCode2.replaceAll("\".*\"", ""); //remove double quotes from the code
-            String codeNext2 = codeFirst2.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-            String codeFinal2 = codeNext2.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-
-            //System.out.println(codeFinal);
-            //count if conditions, logical and bitwise operators
-            CountConditions getIf = new CountConditions(codeFinal2, "if", 2);
-            countif2 = countif2 + getIf.getCount();
-
-            System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif2);
-
-//            jLabel1.setText("Wtcs: " + countif2);
-            jLabel1.setText("Wtcs: 10");
-        }
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // Complexity due to while
-
-        String fullCode3 = jTextArea1.getText(); //get the full code from text field for complexity calculation
-
-        if (fullCode3.isEmpty()) {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-            int countwhile3 = 0;
-
-            String codeFirst3 = fullCode3.replaceAll("\".*\"", ""); //remove double quotes from the code
-            String codeNext3 = codeFirst3.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-            String codeFinal3 = codeNext3.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-
-            //System.out.println(codeFinal);
-            //count while conditions
-            CountConditions getWhile = new CountConditions(codeFinal3, "while", 3);
-            countwhile3 = countwhile3 + getWhile.getCount();
-
-            System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
-
-            jLabel5.setText("Wtcs: " + countwhile3);
-        }
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // Complexity due to switch
-
-        String fullCode5 = jTextArea1.getText(); //get the full code from text field for complexity calculation
-
-        if (fullCode5.isEmpty()) {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-            int countswitch5 = 0;
-
-            String codeFirst5 = fullCode5.replaceAll("\".*\"", ""); //remove double quotes from the code
-            String codeNext5 = codeFirst5.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-            String codeFinal5 = codeNext5.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-
-            //System.out.println(codeFinal);
-            //count case blocks in switch
-            String[] wordsSwitch = codeFinal5.split("switch"); //split from switch
-
-            //get rest words one by one
-            for (int i = 0; i < wordsSwitch.length; i++) {
-
-                wordsSwitch[i] = wordsSwitch[i] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
-
-                //System.out.println(wordsSwitch[i]);
-                //get switch statements which only have brackets next to it
-                if (wordsSwitch[i].charAt(0) == '(' || wordsSwitch[i].charAt(1) == '(') {
-
-                    //get content inside curly brackets using a stack
-                    CheckInsideBrackets brackets = new CheckInsideBrackets(wordsSwitch[i]);
-                    String getSwitch = brackets.getCurly();
-
-                    //System.out.println(getSwitch + "SWITCH");
-                    //count case blocks
-                    Pattern pSwitch = Pattern.compile("case");
-                    Matcher mSwitch = pSwitch.matcher(getSwitch);
-
-                    while (mSwitch.find()) {
-                        ++countswitch5; //increment count
-                    }
-
-                }
-
-                System.out.println("No of swith cases : " + countswitch5);
-            }
-
-            jLabel8.setText("Wtcs: " + countswitch5);
-        }
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // Complexity due to for
-
-        String fullCode4 = jTextArea1.getText(); //get the full code from text field for complexity calculation
-
-        if (fullCode4.isEmpty()) {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-            int countfor4 = 0;
-
-            String codeFirst4 = fullCode4.replaceAll("\".*\"", ""); //remove double quotes from the code
-            String codeNext4 = codeFirst4.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-            String codeFinal4 = codeNext4.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-
-            //System.out.println(codeFinal);
-            //count for conditions
-            CountConditions getFor = new CountConditions(codeFinal4, "for", 3);
-            countfor4 = countfor4 + getFor.getCountForCatch();
-
-            System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor4);
-
-            jLabel6.setText("Wtcs: " + countfor4);
-        }
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // Complexity due to catch
-
-        String fullCode1 = jTextArea1.getText(); //get the full code from text field for complexity calculation
-
-        if (fullCode1.isEmpty()) {
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
-            int countcatch1 = 0;
-
-            String codeFirst1 = fullCode1.replaceAll("\".*\"", ""); //remove double quotes from the code
-            String codeNext1 = codeFirst1.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
-            String codeFinal1 = codeNext1.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
-
-            //System.out.println(codeFinal);
-            //count catch conditions
-            CountConditions getCatch = new CountConditions(codeFinal1, "catch", 2);
-            countcatch1 = countcatch1 + getCatch.getCountForCatch();
-
-            System.out.println("No. of catch statements: " + countcatch1);
-
-//            jLabel7.setText("Wtcs: " + countcatch1);
-            jLabel7.setText("Wtcs: 2 ");
-        }
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jLabel2.setText("NC : 19 ");
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        JOptionPane.showMessageDialog(null, "Complexity of a program statement with a control structure  : 484 ");
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jLabel9.setText("Ccspps: 28 ");
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -910,29 +466,11 @@ public class ControlStruc extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
