@@ -3,23 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ControlStructure;
+package Inheritance;
 
 import Commons.Weights;
-import com.sun.javafx.scene.traversal.WeightedClosestCorner;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Asus
+ * @author Samanmali
  */
-public class ControlStructWeight extends javax.swing.JFrame {
+public class Inheritance_Weight extends javax.swing.JFrame {
 
     /**
-     * Creates new form ControlStructWeight
+     * Creates new form Inheritance_Weight
      */
-    public ControlStructWeight() {
+    public Inheritance_Weight() {
         initComponents();
     }
 
@@ -38,32 +36,23 @@ public class ControlStructWeight extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"A conditional control structure such as an ‘if’ or ‘else-if’ condition", "2"},
-                {"An iterative control structure such as a ‘for’, ‘while’, or ‘do-while’ loop ", "3"},
-                {"The ‘switch’ statement in a ‘switch-case’ control structure", "2"},
-                {"Each ‘case’ statement in a ‘switch-case’ control structure", "1"},
-                {null, null}
+                {"A class with no inheritance (direct or indirect)", "0"},
+                {"A class inheriting (directly or indirectly) from one user-defined class", "1"},
+                {"A class inheriting (directly or indirectly) from two user-defined classes", "2"},
+                {"A class inheriting (directly or indirectly) from three user-defined classes", "3"},
+                {"A class inheriting (directly or indirectly) from more than three user-defined classes", "4"}
             },
             new String [] {
-                "Control Structure Type", "Weight"
+                "Inherited Pattern ", "Weight"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
-        }
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Save");
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setText("SAVE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -75,54 +64,47 @@ public class ControlStructWeight extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
+                .addGap(97, 97, 97)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-        //jTextField1.setText(model.getValueAt(selectedRow, 0).toString());
-        //jTextField2.setText(model.getValueAt(selectedRow, 1).toString());
-        
-        
-        
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-//        int i = jTable1.getSelectedRow();
+          //        int i = jTable1.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
 //        if(i>= 0){
             //model.setValueAt(jTextField1.getText(), i, 0);
 //            model.setValueAt(jTextField2.getText(), i, 1);
 
-            Weights.ifControlStructure = Integer.parseInt(model.getValueAt(0, 1).toString());
-            Weights.forWhileControlStructure = Integer.parseInt(model.getValueAt(1, 1).toString());
-            Weights.switchControlStructure = Integer.parseInt(model.getValueAt(2, 1).toString());
-            Weights.caseControlStructure = Integer.parseInt(model.getValueAt(3, 1).toString());
-           
+            Weights.NoInheritance = Integer.parseInt(model.getValueAt(0, 1).toString());
+            Weights.OneUserDefinedInheritance = Integer.parseInt(model.getValueAt(1, 1).toString());
+            Weights.TwoUserDefinedInheritance = Integer.parseInt(model.getValueAt(2, 1).toString());
+            Weights.ThreeUserDefinedInheritance = Integer.parseInt(model.getValueAt(3, 1).toString());
+            Weights.MoreThanThreeUserDefinedInheritance = Integer.parseInt(model.getValueAt(4, 1).toString());
 //        }else{
 //            JOptionPane.showMessageDialog(null, "Error");
 //        }
         dispose();
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -142,20 +124,20 @@ public class ControlStructWeight extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ControlStructWeight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance_Weight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ControlStructWeight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance_Weight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ControlStructWeight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance_Weight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ControlStructWeight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inheritance_Weight.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ControlStructWeight().setVisible(true);
+                new Inheritance_Weight().setVisible(true);
             }
         });
     }
