@@ -5,6 +5,7 @@
  */
 package ControlStructure;
 
+import Commons.Weights;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -76,21 +77,22 @@ public class CalculateControlStruct {
 
     public int getWeight(String controlStructureType) {
         int wtcs = 0;
+        
         switch (controlStructureType) {
             case "if":
-                wtcs = 2;
+                wtcs = Weights.ifControlStructure;
                 break;
             case "for":
-                wtcs = 3;
+                wtcs = Weights.forWhileControlStructure;
                 break;
             case "while":
-                wtcs = 3;
+                wtcs = Weights.forWhileControlStructure;
                 break;
             case "switch":
-                wtcs = 2;
+                wtcs = Weights.switchControlStructure;
                 break;
             case "case":
-                wtcs = 1;
+                wtcs = Weights.caseControlStructure;
                 break;
         }
         return wtcs;

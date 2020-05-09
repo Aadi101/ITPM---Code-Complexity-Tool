@@ -5,6 +5,7 @@ package ControlStructure;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Commons.Weights;
 import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -269,7 +270,7 @@ public class ControlStruc extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         String fullCode6 = jTextArea1.getText();
-
+        
         if (fullCode6.isEmpty()) {
 
             JFrame f = new JFrame();
@@ -283,7 +284,7 @@ public class ControlStruc extends javax.swing.JFrame {
                 System.out.println(lineCount);
                 Stack ccsStack = new Stack();
                 int currentCcs = 0;
-                int index = 0;
+                int index = 1;
                 for (String line : lines) {
                     CalculateControlStruct calculateControlStruct = new CalculateControlStruct();
                     Object[] row;
@@ -369,8 +370,8 @@ public class ControlStruc extends javax.swing.JFrame {
         
         int y = JOptionPane.showConfirmDialog(null, data, "Code Complexity due to Control Structure", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (y ==0){
-//            String msg = jTextArea1.getText();
-//            new ControlStruc(msg).setVisible(true);
+                
+                new ControlStructWeight().setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
