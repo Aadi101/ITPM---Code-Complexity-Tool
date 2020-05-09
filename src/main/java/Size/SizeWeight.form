@@ -30,15 +30,15 @@
                       <Component id="jButtonSizeW" min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="424" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
                       <Component id="jLabelSizeW" min="-2" pref="335" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="388" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="406" max="32767" attributes="0"/>
+              <EmptySpace pref="442" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
