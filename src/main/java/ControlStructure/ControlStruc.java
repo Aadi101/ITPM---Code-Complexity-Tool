@@ -137,6 +137,11 @@ public class ControlStruc extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Weight");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -350,6 +355,24 @@ public class ControlStruc extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        String data = "<html><h3>Weights related to the control structure factor: </h3><br><br>"
+        + "<b>Ccs = ( Wtcs * NC ) + Ccspps</b><br><br>"
+        + "A conditional control structure such as an ‘if’ or ‘else-if’ condition = 2 <br>"
+        + "An iterative control structure such as a ‘for’, ‘while’, or ‘do-while’ loop = 3 <br>"
+        + "The ‘switch’ statement in a ‘switch-case’ control structure = 2 <br>"
+        + "Each ‘case’ statement in a ‘switch-case’ control structure = 1 </html>";
+        
+        
+        int y = JOptionPane.showConfirmDialog(null, data, "Code Complexity due to Control Structure", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (y ==0){
+//            String msg = jTextArea1.getText();
+//            new ControlStruc(msg).setVisible(true);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

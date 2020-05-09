@@ -1,5 +1,10 @@
 
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import Size.MethodTable;
 import Size.VariableComplexity;
 import Size.SizeTable;
@@ -28,35 +33,107 @@ import javax.swing.JTable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Asus
  */
 public class upload extends javax.swing.JFrame {
 
+    private void unzipFunction(String destinationFolder, String zipFile) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        File directory = new File(destinationFolder);
+
+        // if the output directory doesn't exist, create it
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // buffer for read and write data to file
+        byte[] buffer = new byte[2048];
+
+        try {
+            FileInputStream fInput = new FileInputStream(zipFile);
+            ZipInputStream zipInput = new ZipInputStream(fInput);
+
+            ZipEntry entry = zipInput.getNextEntry();
+
+            while (entry != null) {
+                String entryName = entry.getName();
+                File file = new File(destinationFolder + File.separator + entryName);
+
+                System.out.println("Unzip file " + entryName + " to " + file.getAbsolutePath());
+
+                // create the directories of the zip directory
+                if (entry.isDirectory()) {
+                    File newDir = new File(file.getAbsolutePath());
+                    if (!newDir.exists()) {
+                        boolean success = newDir.mkdirs();
+                        if (success == false) {
+                            System.out.println("Problem creating Folder");
+                        }
+                    }
+                } else {
+                    FileOutputStream fOutput = new FileOutputStream(file);
+                    int count = 0;
+                    while ((count = zipInput.read(buffer)) > 0) {
+                        // write 'count' bytes to the file output stream
+                        fOutput.write(buffer, 0, count);
+                    }
+                    fOutput.close();
+                }
+                // close ZipEntry and take the next one
+                zipInput.closeEntry();
+                entry = zipInput.getNextEntry();
+            }
+
+            // close the last ZipEntry
+            zipInput.closeEntry();
+
+            zipInput.close();
+            fInput.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JFileChooser chooser = new JFileChooser(destinationFolder);
+        //open the file folder
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String filename = f.getAbsolutePath();
+        FileReader reader;
+        try {
+            reader = new FileReader(filename);
+            BufferedReader br = new BufferedReader(reader);
+            //write the file into our text area
+            jTextArea1.read(br, null);
+            br.close();
+            jTextArea1.requestFocus();
+        } catch (Exception ex) {
+            Logger.getLogger(upload.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //buffer reader 
+
+    }
+
     /**
      * Creates new form upload
      */
-    
     //=========================Prabhahsi's variables========================
     //======================================================================
-    
     int Csval = 0;
     int Wkw = 1;
     int Nkw = 0;
     int Wid = 1;
     int Nid = 0;
     int Wop = 1;
-    int Nop =0;
-    int Wnv = 1 ;
-    int Nnv =0;
-    int Wsl =1;
-    int Nsl =0;
-    
+    int Nop = 0;
+    int Wnv = 1;
+    int Nnv = 0;
+    int Wsl = 1;
+    int Nsl = 0;
+
     //=========================Prabhahsi's variables ends here==========================
     //==================================================================================
-    
     public upload() {
         initComponents();
     }
@@ -246,45 +323,78 @@ public class upload extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        //================================================================================
-        //===============================Prabhashi's code start  here=====================
-        
+
+        //==========================Gayani================================================================
         //This is a library for choose the file
         JFileChooser chooser = new JFileChooser();
         //open the file folder
         chooser.showOpenDialog(null);
         //get the selected file into a variable
+        chooser.setMultiSelectionEnabled(true);
+//chooser.showOpenDialog(frame);
         File f = chooser.getSelectedFile();
+        String fileName = f.getName();
+        String[] fileNameArray = fileName.split("\\.");
         //get the file path to a variable
         String filename = f.getAbsolutePath();
-       
         try {
-            //Read the file from the file path
-            FileReader reader = new FileReader(filename);
-            //buffer reader 
-            BufferedReader br = new BufferedReader(reader);
-            //write the file into our text area
-            jTextArea1.read(br, null);
-            br.close();
-            jTextArea1.requestFocus();
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(upload.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(upload.class.getName()).log(Level.SEVERE, null, ex);
+//        String[] args = null;
+            String zipFile = filename;
+            String destinationFolder = "C:\\complexityUnzipper";
+
+            // take the arguments from the command line
+            if (!zipFile.equals("") && fileNameArray[fileNameArray.length - 1].equalsIgnoreCase("zip")) {
+                try {
+//                zipFile = args[0];
+//                destinationFolder = args[1];
+                    unzipFunction(destinationFolder, zipFile);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.exit(1);
+                }
+            } else {
+                //Read the file from the file path
+                FileReader reader = new FileReader(filename);
+                //buffer reader 
+                BufferedReader br = new BufferedReader(reader);
+                //write the file into our text area
+                jTextArea1.read(br, null);
+                br.close();
+                jTextArea1.requestFocus();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        
+        //==========================Gayani================================================================
+
+        //================================================================================
+        //===============================Prabhashi's code start  here=====================
+//        try {
+//            //Read the file from the file path
+//            FileReader reader = new FileReader(filename);
+//            //buffer reader 
+//            BufferedReader br = new BufferedReader(reader);
+//            //write the file into our text area
+//            jTextArea1.read(br, null);
+//            br.close();
+//            jTextArea1.requestFocus();
+//            
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(upload.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(upload.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         //=====================================Prabhahsi's code ends here==================================
         //=================================================================================================
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         //--------------------------------------------------ControlStructure----------------------------------------------------------
         String msg = jTextArea1.getText();
-        
+
         new ControlStruc(msg).setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -293,33 +403,28 @@ public class upload extends javax.swing.JFrame {
         //--------------------------------------------------Coupling----------------------------------------------------------
         CouplingN up = new CouplingN();
         up.setVisible(true);
-        
+
 //        String msg = jTextArea1.getText();
 //        new Coupling(msg).setVisible(true);
         // Load table data
-
         String fullCode6 = jTextArea1.getText();
 
         if (fullCode6.isEmpty()) {
 
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } else {
         }
-        else{}
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    
-   
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         String msg = jTextArea1.getText();
-        
-        new VariableTable(msg).setVisible(true);
-        
 
-        
+        new VariableTable(msg).setVisible(true);
+
         VariableComplexity vcISHU = new VariableComplexity();
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -329,92 +434,79 @@ public class upload extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+
         Inherit up = new Inherit();
         up.setVisible(true);
-        
+
 //        String msg = jTextArea1.getText();
 //        new Inheritance(msg).setVisible(true);
-        
         // Load table data
-
         String fullCode6 = jTextArea1.getText();
 
         if (fullCode6.isEmpty()) {
 
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        }
-        else{
-            
-        
+        } else {
+
         }// TODO add your handling code here:
         //Testing
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
-        
+
         String msg = jTextArea1.getText();
-        
+
         new SizeTable(msg).setVisible(true);
-        
-        
-        
-        
-        
-        
-        
+
         //==============================================================================================================================================
         //==========================================================================================================================================
         //Get the text into a variable
         String maintext = jTextArea1.getText().toString();
-        
+
         //Get the length of the text ( count the words in the text area )=============This was not use======
         //int count = maintext.split(" ").length;
-        
         //Scanner to scan the text
         Scanner scanText = new Scanner(maintext);
 
         //variables
         String st;
         int totother = 0;
-        
+
         //nextLine means it will read the text line by line.
-        while((st = scanText.nextLine()) != null){
+        while ((st = scanText.nextLine()) != null) {
             String[] texx = st.split(" ");
 
-            for (int i=0; i < texx.length; i++){
+            for (int i = 0; i < texx.length; i++) {
                 // this if statement for check Nkw is in the code. ==================This is correct======================
-                if ( texx[i].equals("class") || texx[i].equals("public") || texx[i].equals("void") || texx[i].equals("true") || texx[i].equals("else")
-                        || texx[i].equals("default") || texx[i].equals("return")|| texx[i].equals("null") || texx[i].equals("break") || texx[i].equals("static") || texx[i].equals("this")) {
+                if (texx[i].equals("class") || texx[i].equals("public") || texx[i].equals("void") || texx[i].equals("true") || texx[i].equals("else")
+                        || texx[i].equals("default") || texx[i].equals("return") || texx[i].equals("null") || texx[i].equals("break") || texx[i].equals("static") || texx[i].equals("this")) {
                     Nkw = Nkw + 1;
-                }
-                //This has only checking varibale type s are there or not ================This one mostly correct=======================
-                else if ( texx[i].contains("int")|| texx[i].contains("float") || texx[i].contains("double") || texx[i].contains("char") || texx[i].contains("main") 
-                        || texx[i].contains("class") || texx[i].contains("args") || texx[i].contains("array") || texx[i].contains("Linked List") 
-                        || texx[i].contains("Stack") || texx[i].contains("Queue") || texx[i].contains("System") || texx[i].contains("out") || texx[i].contains("println") 
-                        || texx[i].contains("print") || texx[i].equals("i") || texx[i].contains("j") || texx[i].equals("counter")     ) {
-                   Nid = Nid + 1;
-                }else if ( texx[i].equals("+") || texx[i].equals("-") || texx[i].equals("*") || texx[i].equals("/") || texx[i].equals("%") || texx[i].contains("&&")
-                        || texx[i].equals("||") || texx[i].equals("<")|| texx[i].equals(">") || texx[i].contains("<=") || texx[i].contains(">=")
-                        || texx[i].contains("==") || texx[i].equals("=")|| texx[i].contains("++") || texx[i].contains("--") || texx[i].contains(".")) {
-                   Nop = Nop + 1;
+                } //This has only checking varibale type s are there or not ================This one mostly correct=======================
+                else if (texx[i].contains("int") || texx[i].contains("float") || texx[i].contains("double") || texx[i].contains("char") || texx[i].contains("main")
+                        || texx[i].contains("class") || texx[i].contains("args") || texx[i].contains("array") || texx[i].contains("Linked List")
+                        || texx[i].contains("Stack") || texx[i].contains("Queue") || texx[i].contains("System") || texx[i].contains("out") || texx[i].contains("println")
+                        || texx[i].contains("print") || texx[i].equals("i") || texx[i].contains("j") || texx[i].equals("counter")) {
+                    Nid = Nid + 1;
+                } else if (texx[i].equals("+") || texx[i].equals("-") || texx[i].equals("*") || texx[i].equals("/") || texx[i].equals("%") || texx[i].contains("&&")
+                        || texx[i].equals("||") || texx[i].equals("<") || texx[i].equals(">") || texx[i].contains("<=") || texx[i].contains(">=")
+                        || texx[i].contains("==") || texx[i].equals("=") || texx[i].contains("++") || texx[i].contains("--") || texx[i].contains(".")) {
+                    Nop = Nop + 1;
                     //System.out.println("sysmbol : " + texx[i]);
-                }else if ( texx[i].equals("")  || texx[i].equals("Hi")|| texx[i].contains("")  ) {
-                   Nsl = Nsl + 1;
-                   //System.out.println("sysmbol : " + texx[i]);
-                }else {
-                   totother = totother + 1;
+                } else if (texx[i].equals("") || texx[i].equals("Hi") || texx[i].contains("")) {
+                    Nsl = Nsl + 1;
+                    //System.out.println("sysmbol : " + texx[i]);
+                } else {
+                    totother = totother + 1;
                 }
-            }  
-            
+            }
+
             //Variable to count CS
             Csval = Nkw + Nid + Nop + Nsl;
 
             //Variable for convert Nid integer valuue to String
             String Nnid = Integer.toString(Csval);
-            
+
             //String value of the Nid will display in the interface of Upload.java.
             prabhaLabel.setText(Nnid);
 
@@ -429,18 +521,21 @@ public class upload extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       String msg = jTextArea1.getText();
-        
+        String msg = jTextArea1.getText();
+
         new MethodTable(msg).setVisible(true);
-    
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
