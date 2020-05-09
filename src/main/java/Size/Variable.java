@@ -5,17 +5,20 @@
  */
 package Size;
 
+import Commons.Weights;
+
 /**
  *
  * @author ISHU
  */
 public class Variable {
+
     private String codeLine = "public class Ashan{";
     private boolean insideClass = false;
     private boolean insideMethod = false;
-    private int wvs = 0 ;
-    private int npdtv = 0 ;
-    private int ncdtv = 0 ;
+    private int wvs = 0;
+    private int npdtv = 0;
+    private int ncdtv = 0;
 
     public String getCodeLine() {
         return codeLine;
@@ -65,8 +68,8 @@ public class Variable {
         this.ncdtv = ncdtv;
     }
 
-    public void classDeclaration(){
-        if (codeLine.contains("class")){
+    public void classDeclaration() {
+        if (codeLine.contains("class")) {
             insideClass = true;
         }
     }
@@ -74,36 +77,36 @@ public class Variable {
     public void methodDeclaration() {
         Size size = new Size();
         size.setTextLine(codeLine);
-        if (size.isMethodDeclarationFound()){
+        if (size.isMethodDeclarationFound()) {
             insideClass = false;
             insideMethod = true;
         }
     }
 
-    public void findVariable(){
+    public void findVariable() {
         this.classDeclaration();
         this.methodDeclaration();
 
         Size size = new Size();
         size.setTextLine(codeLine);
 
-        if(!codeLine.contains("import")){
-            if (size.isVariableOrObjectOrDataStructure()){
-            if (insideClass){
-                wvs += 2;
-                if (size.getSumOfPrimitiveVariables() > 0) {
-                    npdtv += 1;
+        if (!codeLine.contains("import")) {
+            if (size.isVariableOrObjectOrDataStructure()) {
+                if (insideClass) {
+                    wvs += Weights.globalVariable;
+                    if (size.getSumOfPrimitiveVariables() > 0) {
+                        npdtv += Weights.primitiveDataType;
+                    } else {
+                        ncdtv += Weights.compositeDataType;
+                    }
                 } else {
-                    ncdtv += 1;
+                    wvs += Weights.localVariable;
+                    if (size.getSumOfPrimitiveVariables() > 0) {
+                        npdtv += Weights.primitiveDataType;
+                    } else {
+                        ncdtv += Weights.compositeDataType;
+                    }
                 }
-            } else {
-                wvs += 1;
-                if (size.getSumOfPrimitiveVariables() > 0) {
-                    npdtv += 1;
-                } else {
-                    ncdtv += 1;
-                }
-            }
             }
         }
     }
