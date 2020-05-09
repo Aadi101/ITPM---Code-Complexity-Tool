@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +23,22 @@ public class Main extends javax.swing.JFrame {
     public ClassObj classes[];
     DefaultTableModel model;
     int selectedIndex;
+    
+    public int Wmcms;
+    public int Wrmcrms;
+    public int Wmcrms;
+    public int Wrmcms;
+    public int Wmrgvs;
+    public int Wrmrgvs;
+    public int Wmcmd;
+    public int Wmcrmd;
+    public int Wrmcrmd;
+    public int Wrmcmd;
+    public int Wmrgvd; 
+    public int Wrmrgvd;
+    public int Wr;
+    
+    EditWeights ew;
     /** 
      * Creates new form Main
      */
@@ -29,6 +47,7 @@ public class Main extends javax.swing.JFrame {
         model = new DefaultTableModel();
         jTable1.setModel(model);
         model.addColumn("Class Name");
+        ew = new EditWeights();
     }
 
     /**
@@ -51,10 +70,11 @@ public class Main extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Folder Path :");
+        jLabel1.setText("Source Path :");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +82,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Browse");
+        jButton1.setText("Browse ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -122,40 +142,53 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("Edit Weights");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(88, 88, 88)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(selectedFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(19, 19, 19)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(19, 19, 19))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(selectedFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jButton2)))
-                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,9 +200,14 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jButton6)))
+                .addGap(63, 63, 63)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -180,10 +218,11 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -191,21 +230,46 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String fpath = "";
         //jTextField1.setText("C:\\Users\\Tharindu\\Desktop\\A");
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        //fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("ZIP FILES", "zip", "zip");
+        fileChooser.setFileFilter(filter);
         int option = fileChooser.showOpenDialog(this);
         if(option == JFileChooser.APPROVE_OPTION){
            File file = fileChooser.getSelectedFile();
            jTextField1.setText(file.getAbsolutePath());
+           fpath = file.getAbsolutePath();
         }else{
           jTextField1.setText(null);
+        }
+        
+        //Execute only for zip files
+        if(fpath.contains(".zip")){
+            String zipFilePath = fpath;
+            String destDirectory = fpath.substring(0,fpath.lastIndexOf("\\"));
+            System.out.println("destDirectory : "+destDirectory);
+            unzip unzipper = new unzip();
+            try {
+                unzipper.unzip(zipFilePath, destDirectory);
+                System.out.println("Done");
+            } catch (Exception ex) {
+                // some errors occurred
+                ex.printStackTrace();
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        updateWeights();
         String FolderPath = jTextField1.getText().toString();
+        
+        if(FolderPath.contains(".zip")){
+            FolderPath = FolderPath.substring(0,FolderPath.lastIndexOf("\\"));
+        }
+        
         getFileContent gfc = new getFileContent();
         Extraction ex = new Extraction();
         
@@ -312,7 +376,7 @@ public class Main extends javax.swing.JFrame {
         Nmrgvs = Nmrgvs * Wmrgvs; 
         Nrmrgvs = Nrmrgvs * Wrmrgvs;
         
-        System.out.println("Nrmcrms Nmcms Nmcrms Nrmcms Nmrgvs Nrmrgvs : "+Nrmcrms+" "+Nmcms+" "+Nmcrms+" "+Nrmcms+" "+Nmrgvs+" "+Nrmrgvs);
+        System.out.println("Nmcms Nrmcrms Nmcrms Nrmcms Nmrgvs Nrmrgvs : "+Nmcms+" "+Nrmcrms+" "+Nmcrms+" "+Nrmcms+" "+Nmrgvs+" "+Nrmrgvs);
         
         calc.CC(selectedIndex, classes);
         
@@ -341,7 +405,22 @@ public class Main extends javax.swing.JFrame {
         
         System.out.println("Nmcmd Nmcrmd Nrmcrmd Nrmcmd Nmrgvd Nrmrgvd : "+ Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmcmd+","+Nmrgvd+","+Nrmrgvd);
         
+        int cc[]= new int[]{Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd};
         
+//      Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd
+
+//      ___________________________________________________________________________________________
+        //////////////////////////        Setting up results page        //////////////////////////
+
+        SingleFileResult sfr = new SingleFileResult();
+        sfr.setFileName(classes[index].getName());
+        
+        DefaultTableModel model1 = new DefaultTableModel();
+        sfr.jTable1.setModel(model1);
+        model1.addColumn("Nmcms"); model1.addColumn("Nrmcrms"); model1.addColumn("Nmcrms"); model1.addColumn("Nrmcms"); model1.addColumn("Nmrgvs"); model1.addColumn("Nrmrgvs"); model1.addColumn("Nmcmd"); model1.addColumn("Nmcrmd"); model1.addColumn("Nrmcrmd"); model1.addColumn("Nrmcmd"); model1.addColumn("Nmrgvd"); model1.addColumn("Nrmrgvd");;
+        
+        model1.addRow(new Object[]{Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd});
+        sfr.setVisible(true);
     }//GEN-LAST:event_selectedFileActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -365,6 +444,13 @@ public class Main extends javax.swing.JFrame {
         
         ArrayList<String> complexities = new ArrayList();
         //complexities.add("Nrmcrms,Nmcms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmrgvd,Nmrgvd,Nrmcmd");
+        
+        SingleFileResult sfr = new SingleFileResult();
+        DefaultTableModel model1 = new DefaultTableModel();
+        sfr.jTable1.setModel(model1);
+        
+        model1.addColumn("File Name");model1.addColumn("Nmcms"); model1.addColumn("Nrmcrms"); model1.addColumn("Nmcrms"); model1.addColumn("Nrmcms"); model1.addColumn("Nmrgvs"); model1.addColumn("Nrmrgvs"); model1.addColumn("Nmcmd"); model1.addColumn("Nmcrmd"); model1.addColumn("Nrmcrmd"); model1.addColumn("Nrmcmd"); model1.addColumn("Nmrgvd"); model1.addColumn("Nrmrgvd");;
+        
         
         //Do the same thing over all the classes
         for(int a = 0 ; a<size; a++){
@@ -427,8 +513,12 @@ public class Main extends javax.swing.JFrame {
             System.out.println("Nmcmd Nmcrmd Nrmcrmd Nrmcmd Nmrgvd Nrmrgvd : "+ Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmcmd+","+Nmrgvd+","+Nrmrgvd);
             //(Nrmcrms+","+Nmcms+","+Nmcrms+","+Nrmcms+","+Nmrgvs+","+Nrmrgvs+","+Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmrgvd+","+Nmrgvd)
             complexities.add(Nrmcrms+","+Nmcms+","+Nmcrms+","+Nrmcms+","+Nmrgvs+","+Nrmrgvs+","+Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmrgvd+","+Nmrgvd);
-        }
         
+            model1.addRow(new Object[]{classes[a].getName(),Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd});
+
+        }
+        sfr.updateLables();
+        sfr.setVisible(true);
         System.out.println("Final Complexities");
         
         System.out.println("Nrmcrms,Nmcms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmrgvd,Nmrgvd,Nrmcmd");
@@ -437,9 +527,61 @@ public class Main extends javax.swing.JFrame {
             System.out.println("Class "+i+" :"+complexities.get(i));
         }
         
+        int Nrmcrms=0;int Nmcms=0; int Nmcrms=0; int Nrmcms=0; int Nmrgvs= 0; int Nrmrgvs=0;
+        int Nmcmd=0 ; int Nmcrmd=0; int Nrmcrmd=0; int Nrmrgvd=0; int Nmrgvd=0; int Nrmcmd=0;
         
+        for(int i = 1; i < complexities.size(); i++){
+            String x = complexities.get(i);
+            String []tkns = x.split(",");
+            int _Nrmcrms = Integer.parseInt(tkns[0]);
+            int _Nmcms = Integer.parseInt(tkns[0]);
+            int _Nmcrms = Integer.parseInt(tkns[0]);
+            int _Nrmcms = Integer.parseInt(tkns[0]);
+            int _Nmrgvs = Integer.parseInt(tkns[0]);
+            int _Nrmrgvs = Integer.parseInt(tkns[0]);
+            int _Nmcmd = Integer.parseInt(tkns[0]);
+            int _Nmcrmd = Integer.parseInt(tkns[0]);
+            int _Nrmcrmd = Integer.parseInt(tkns[0]);
+            int _Nrmrgvd = Integer.parseInt(tkns[0]);
+            int _Nmrgvd = Integer.parseInt(tkns[0]);
+            int _Nrmcmd = Integer.parseInt(tkns[0]);
+            
+            Nrmcrms = Nrmcrms + _Nrmcrms;
+            Nmcms = Nmcms + _Nmcms;
+            Nmcrms = Nmcrms + _Nmcrms; 
+            Nrmcms = Nrmcms + _Nrmcms;
+            Nmrgvs = Nmrgvs + _Nmrgvs;
+            Nrmrgvs = Nrmrgvs + _Nrmrgvs;
+            Nmcmd = Nmcmd + _Nmcmd;
+            Nmcrmd = Nmcrmd + _Nmcrmd;
+            Nrmcrmd = Nrmcrmd + _Nrmcrmd;
+            Nrmrgvd = Nrmrgvd + _Nrmrgvd;
+            Nmrgvd = Nmrgvd + _Nmrgvd;
+            Nrmcmd = Nrmcmd + _Nrmcmd;
+            
+        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+            ew.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    public void updateWeights(){
+        Wmcms = ew.Wmcms;
+        Wrmcrms = ew.Wrmcrms;
+        Wmcrms = ew.Wmcrms;
+        Wrmcms = ew.Wrmcms;
+        Wmrgvs = ew.Wmrgvs;
+        Wrmrgvs = ew.Wrmrgvs;
+        Wmcmd = ew.Wmcmd;
+        Wmcrmd = ew.Wmcrmd;
+        Wrmcrmd = ew.Wrmcrmd;
+        Wrmcmd = ew.Wrmcmd;
+        Wmrgvd = ew.Wmrgvd;
+        Wrmrgvd = ew.Wrmrgvd;
+        Wr = ew.Wr;
+    }
     /**
      * @param args the command line arguments
      */
@@ -480,6 +622,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
