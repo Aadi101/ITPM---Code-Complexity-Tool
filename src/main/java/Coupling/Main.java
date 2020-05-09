@@ -128,9 +128,8 @@ public class Main extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jLabel3.setFont(new java.awt.Font("Lemon", 0, 30)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Complexity Calculator");
+        jLabel3.setText("Coupling Complexity");
 
         jButton5.setText("Print Functions");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
