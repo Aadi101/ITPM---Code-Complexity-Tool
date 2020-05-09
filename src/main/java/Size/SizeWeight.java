@@ -46,14 +46,14 @@ public class SizeWeight extends javax.swing.JFrame {
             }
         });
 
-        jTableSizeW.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTableSizeW.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTableSizeW.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Keyword", ""},
-                {"Identifier", ""},
-                {"Operator", ""},
-                {"Numerical Value", ""},
-                {"String literal", null}
+                {"Keyword", "1"},
+                {"Identifier", "1"},
+                {"Operator", "1"},
+                {"Numerical Value", "1"},
+                {"String literal", "1"}
             },
             new String [] {
                 "Programe Components", "Weight"
