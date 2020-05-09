@@ -6,10 +6,7 @@
 package Coupling;
 
 import java.util.ArrayList;
-/**
- *
- * @author Tharindu
- */
+
 public class CalculateWhole {
     
     ClassObj classes[];

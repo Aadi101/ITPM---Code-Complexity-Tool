@@ -5,10 +5,7 @@
  */
 package Coupling;
 
-/**
- *
- * @author Tharindu
- */
+
 public class SingleFileResult extends javax.swing.JFrame {
 
     //int Nrmcrms,int Nmcms,int Nmcrms,int Nrmcms,int Nmrgvs,int Nrmrgvs;
@@ -25,8 +22,13 @@ public class SingleFileResult extends javax.swing.JFrame {
     }
     
     public void updateLables (){
-        this.jLabel3.setText("Complexity of Whole Project");
-        this.jLabel4.setVisible(false);
+        this.jLabel3.setText("Complexity of Whole Project :");
+//        this.jLabel4.setText(String.valueOf(ma.totalCom));
+//       this.jLabel4.setVisible(false);
+    }
+    
+    public void UpTotalComplexity(int total){
+        this.jLabel4.setText(String.valueOf(total));
     }
     
     /**

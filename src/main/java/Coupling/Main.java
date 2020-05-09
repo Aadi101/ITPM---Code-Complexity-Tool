@@ -14,10 +14,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Tharindu
- */
+
 public class Main extends javax.swing.JFrame {
 
     public ClassObj classes[];
@@ -407,6 +404,8 @@ public class Main extends javax.swing.JFrame {
         
         int cc[]= new int[]{Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd};
         
+        int tot = Nmcms + Nrmcrms + Nmcrms + Nrmcms + Nmrgvs + Nrmrgvs + Nmcmd  + Nmcrmd + Nrmcrmd + Nrmcmd + Nmrgvd + Nrmrgvd ;
+        
 //      Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd
 
 //      ___________________________________________________________________________________________
@@ -417,9 +416,9 @@ public class Main extends javax.swing.JFrame {
         
         DefaultTableModel model1 = new DefaultTableModel();
         sfr.jTable1.setModel(model1);
-        model1.addColumn("Nmcms"); model1.addColumn("Nrmcrms"); model1.addColumn("Nmcrms"); model1.addColumn("Nrmcms"); model1.addColumn("Nmrgvs"); model1.addColumn("Nrmrgvs"); model1.addColumn("Nmcmd"); model1.addColumn("Nmcrmd"); model1.addColumn("Nrmcrmd"); model1.addColumn("Nrmcmd"); model1.addColumn("Nmrgvd"); model1.addColumn("Nrmrgvd");;
+        model1.addColumn("Nmcms"); model1.addColumn("Nrmcrms"); model1.addColumn("Nmcrms"); model1.addColumn("Nrmcms"); model1.addColumn("Nmrgvs"); model1.addColumn("Nrmrgvs"); model1.addColumn("Nmcmd"); model1.addColumn("Nmcrmd"); model1.addColumn("Nrmcrmd"); model1.addColumn("Nrmcmd"); model1.addColumn("Nmrgvd"); model1.addColumn("Nrmrgvd"); model1.addColumn("Ccp");
         
-        model1.addRow(new Object[]{Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd});
+        model1.addRow(new Object[]{Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd,tot});
         sfr.setVisible(true);
     }//GEN-LAST:event_selectedFileActionPerformed
 
@@ -439,6 +438,8 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    int totalCom ;
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int size = classes.length;
         
@@ -449,7 +450,7 @@ public class Main extends javax.swing.JFrame {
         DefaultTableModel model1 = new DefaultTableModel();
         sfr.jTable1.setModel(model1);
         
-        model1.addColumn("File Name");model1.addColumn("Nmcms"); model1.addColumn("Nrmcrms"); model1.addColumn("Nmcrms"); model1.addColumn("Nrmcms"); model1.addColumn("Nmrgvs"); model1.addColumn("Nrmrgvs"); model1.addColumn("Nmcmd"); model1.addColumn("Nmcrmd"); model1.addColumn("Nrmcrmd"); model1.addColumn("Nrmcmd"); model1.addColumn("Nmrgvd"); model1.addColumn("Nrmrgvd");;
+        model1.addColumn("File Name");model1.addColumn("Nmcms"); model1.addColumn("Nrmcrms"); model1.addColumn("Nmcrms"); model1.addColumn("Nrmcms"); model1.addColumn("Nmrgvs"); model1.addColumn("Nrmrgvs"); model1.addColumn("Nmcmd"); model1.addColumn("Nmcrmd"); model1.addColumn("Nrmcrmd"); model1.addColumn("Nrmcmd"); model1.addColumn("Nmrgvd"); model1.addColumn("Nrmrgvd"); model1.addColumn("Ccp");
         
         
         //Do the same thing over all the classes
@@ -510,14 +511,18 @@ public class Main extends javax.swing.JFrame {
             Nmrgvd = Nmrgvd * Wmrgvd;
             Nrmrgvd = Nrmrgvd * Wrmrgvd ;
 
+            int total = Nmcms + Nrmcrms + Nmcrms + Nrmcms + Nmrgvs + Nrmrgvs + Nmcmd + Nmcrmd + Nrmcrmd + Nrmcmd + Nmrgvd + Nrmrgvd;
+            totalCom += total;
+            System.out.println("lololol :" + totalCom);
             System.out.println("Nmcmd Nmcrmd Nrmcrmd Nrmcmd Nmrgvd Nrmrgvd : "+ Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmcmd+","+Nmrgvd+","+Nrmrgvd);
             //(Nrmcrms+","+Nmcms+","+Nmcrms+","+Nrmcms+","+Nmrgvs+","+Nrmrgvs+","+Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmrgvd+","+Nmrgvd)
             complexities.add(Nrmcrms+","+Nmcms+","+Nmcrms+","+Nrmcms+","+Nmrgvs+","+Nrmrgvs+","+Nmcmd+","+Nmcrmd+","+Nrmcrmd+","+Nrmrgvd+","+Nmrgvd);
         
-            model1.addRow(new Object[]{classes[a].getName(),Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd});
+            model1.addRow(new Object[]{classes[a].getName(),Nmcms,Nrmcrms,Nmcrms,Nrmcms,Nmrgvs,Nrmrgvs,Nmcmd,Nmcrmd,Nrmcrmd,Nrmcmd,Nmrgvd,Nrmrgvd,total});
 
         }
         sfr.updateLables();
+        sfr.UpTotalComplexity(totalCom);
         sfr.setVisible(true);
         System.out.println("Final Complexities");
         

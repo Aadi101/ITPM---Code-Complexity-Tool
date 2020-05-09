@@ -7,10 +7,6 @@ package Coupling;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Tharindu
- */
 public class ClassObj {
     
     private String ClassName;

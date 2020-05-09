@@ -11,7 +11,6 @@ import Size.SizeTable;
 import Size.VariableTable;
 import ControlStructure.ControlStruc;
 import Inheritance.Inherit;
-import Coupling.CouplingN;
 import Coupling.Main;
 import java.io.BufferedReader;
 import java.io.File;

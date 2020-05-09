@@ -5,10 +5,6 @@
  */
 package Coupling;
 
-/**
- *
- * @author Tharindu
- */
 public class Weights {
     public int Wmcms;
     public int Wrmcrms;

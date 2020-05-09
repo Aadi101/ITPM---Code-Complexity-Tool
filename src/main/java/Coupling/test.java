@@ -5,10 +5,7 @@
  */
 package Coupling;
 
-/**
- *
- * @author Tharindu
- */
+
 public class test {
     
     public static void concat(String a, String b){

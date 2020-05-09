@@ -7,10 +7,6 @@ package Coupling;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Tharindu
- */
 public class Calculate {
     int Nmcmd = 0;
     int Nmcrmd = 0;

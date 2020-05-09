@@ -7,10 +7,7 @@ package Coupling;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Tharindu
- */
+
 public class Method {
     
     String MethodName ;

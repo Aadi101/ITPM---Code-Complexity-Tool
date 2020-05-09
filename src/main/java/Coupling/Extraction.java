@@ -7,10 +7,7 @@ package Coupling;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Tharindu
- */
+
 public class Extraction {
 
     public ArrayList<Integer> calcDepth(ArrayList<String> arr){
@@ -51,17 +48,36 @@ public class Extraction {
                 
                 if(line.contains(" static ")){
                     System.out.println("--- Static signature : "+line+" --> "+tkns[3].substring(0, tkns[3].indexOf("("))+"\n");
-                    functions.add(tkns[3].substring(0, tkns[3].indexOf("(")).trim());
+                    if(tkns[3].contains("(")){
+                        functions.add(tkns[3].substring(0, tkns[3].indexOf("(")).trim());
+                        System.out.println("--- Static signature : "+line+" --> "+tkns[3].substring(0, tkns[3].indexOf("("))+"\n");
+                    }else{
+                        functions.add(tkns[3].substring(0, tkns[3].length()).trim());
+                        System.out.println("--- Static signature : "+line+" --> "+tkns[3].substring(0, tkns[3].length())+"\n");
+
+                    }
                     continue;
                 }
 
                 if(line.contains(" "+className+"(" ) || line.contains(" "+className+" (")){
                             System.out.println("--- <--> Constructor <-->");
-                            functions.add(tkns[1].substring(0,tkns[1].indexOf("(")).trim());
+                            if(tkns[1].contains("(")){
+                                functions.add(tkns[1].substring(0,tkns[1].indexOf("(")).trim());
+                                System.out.println("--- <--> " +tkns[1].substring(0,tkns[1].indexOf("(")));
+                            }else{
+                                functions.add(tkns[1].substring(0,tkns[1].length()).trim());
+                                System.out.println("--- <--> " +tkns[1].substring(0,tkns[1].length()));
+                            }
 
                 }else{
-                        System.out.println("--- Normal signature : "+tkns[2].substring(0,tkns[2].indexOf("("))+"\n");
-                        functions.add(tkns[2].substring(0,tkns[2].indexOf("(")).trim());
+                        //System.out.println("--- Normal signature : "+tkns[2].substring(0,tkns[2].indexOf("("))+"\n");
+                        if(tkns[2].contains("(")){
+                            functions.add(tkns[2].substring(0,tkns[2].indexOf("(")).trim());
+                            System.out.println("--- Normal signature : "+tkns[2].substring(0,tkns[2].indexOf("("))+"\n");
+                        }else{
+                            functions.add(tkns[2].substring(0,tkns[2].length()));
+                            System.out.println("--- Normal signature : "+tkns[2].substring(0,tkns[2].length())+"\n");
+                        }
                 }
             }
         }
