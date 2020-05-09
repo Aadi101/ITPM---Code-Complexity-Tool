@@ -11,4 +11,8 @@ package Inheritance;
  */
 public class Inheritance_Calculator {
     
+    private static Inheritance_Calculator uniqueInstance;
+	private static final String inheritedClass = "(public class)\\s([a-zA-Z]+)\\s(extends)\\s([a-zA-Z]+)";
+	private static final String normalClass = "(public class)\\s([a-zA-Z]+)";
+	
 }
