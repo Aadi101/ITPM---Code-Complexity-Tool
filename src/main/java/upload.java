@@ -12,6 +12,7 @@ import Size.VariableTable;
 import ControlStructure.ControlStruc;
 import Inheritance.Inherit;
 import Coupling.Main;
+import Inheritance.Inheritance;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

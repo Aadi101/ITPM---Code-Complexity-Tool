@@ -5,6 +5,7 @@ package Size;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Commons.Weights;
 import ControlStructure.CheckInsideBrackets;
 import ControlStructure.CountConditions;
 import java.awt.print.PrinterException;
@@ -256,11 +257,11 @@ public class MethodTable extends javax.swing.JFrame {
                 methods.setTextLine(lines[i]);
                 methods.checkMethods();
                 int wmrt = methods.getWmrt();
-                int npdtv = methods.getNpdtp();
-                int ncdtp = methods.getNcdtp();
+                int npdtv = methods.getNpdtp() * Weights.primitiveDataTypeParameter;
+                int ncdtp = methods.getNcdtp() * Weights.compositeDataTypeParameter;
                 int cm = wmrt + npdtv + ncdtp;
                 
-                    Object[] row = {(i + 1), lines[i], wmrt, npdtv, ncdtp, cm};
+                    Object[] row = {(i + 1), lines[i], wmrt, npdtv , ncdtp , cm};
 
                     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 

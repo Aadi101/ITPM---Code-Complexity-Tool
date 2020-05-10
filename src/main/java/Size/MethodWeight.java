@@ -101,10 +101,10 @@ public class MethodWeight extends javax.swing.JFrame {
          DefaultTableModel model = (DefaultTableModel)jTableMethod.getModel();
 
             Weights.methodPrimitiveType = Integer.parseInt(model.getValueAt(0, 1).toString());
-            Weights.methodCompositeType = Integer.parseInt(model.getValueAt(1, 2).toString());
-            Weights.methodVoidType = Integer.parseInt(model.getValueAt(2, 0).toString());
+            Weights.methodCompositeType = Integer.parseInt(model.getValueAt(1, 1).toString());
+            Weights.methodVoidType = Integer.parseInt(model.getValueAt(2, 1).toString());
             Weights.primitiveDataTypeParameter = Integer.parseInt(model.getValueAt(3, 1).toString());
-            Weights.compositeDataTypeParameter = Integer.parseInt(model.getValueAt(4, 2).toString());
+            Weights.compositeDataTypeParameter = Integer.parseInt(model.getValueAt(4, 1).toString());
 
         dispose();
                       

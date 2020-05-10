@@ -45,4 +45,5 @@ public class Weights {
     public static int methodVoidType = 0;
     public static int primitiveDataTypeParameter = 1;
     public static int compositeDataTypeParameter = 2;
+
 }

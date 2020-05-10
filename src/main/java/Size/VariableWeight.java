@@ -98,10 +98,11 @@ public class VariableWeight extends javax.swing.JFrame {
     private void jButtVariablWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtVariablWActionPerformed
          DefaultTableModel model = (DefaultTableModel)jTableVariableW.getModel();
 
-            Weights.globalVariable = Integer.parseInt(model.getValueAt(0, 2).toString());
+            Weights.globalVariable = Integer.parseInt(model.getValueAt(0, 1).toString());
             Weights.localVariable = Integer.parseInt(model.getValueAt(1, 1).toString());
             Weights.primitiveDataType = Integer.parseInt(model.getValueAt(2, 1).toString());
-            Weights.compositeDataType = Integer.parseInt(model.getValueAt(3, 2).toString());
+            Weights.compositeDataType = Integer.parseInt(model.getValueAt(3, 1).toString());
+
             
 
         dispose();
