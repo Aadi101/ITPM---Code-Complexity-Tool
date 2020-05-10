@@ -7,18 +7,35 @@ package Coupling;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Tharindu
- */
+
 public class Method {
-    private ArrayList<String> content = new ArrayList();
     
-    public Method(ArrayList<String> arr){
+    String MethodName ;
+    private ArrayList<String> content = new ArrayList();
+    private ArrayList<Integer> depth = new ArrayList();
+    
+    
+    public Method(ArrayList<String> arr, String mName){
         this.content=arr;
+        this.MethodName = mName;
     }
+    
+    
+    public void setMethodDepth(ArrayList<Integer>arr){
+        this.depth = arr;
+    }
+    
+    
     
     public ArrayList<String> getMethod(){
         return this.content;
+    }
+    
+    public ArrayList<Integer> getMethodDepth(){
+        return this.depth;
+    }
+    
+    public Integer getMethodLineDepth(int LineNo){
+        return this.depth.get(LineNo);
     }
 }

@@ -27,33 +27,38 @@ public class VariableWeight extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelVarableW = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jTableVariableW = new javax.swing.JTable();
+        jButtVariablW = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("            Weight related to the Variable Factor");
+        jLabelVarableW.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelVarableW.setText("            Weight related to the Variable Factor");
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableVariableW.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTableVariableW.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Global Variable", null},
-                {"Local Variable", null},
-                {"Primitive date type", null},
-                {"Composite data type variable", null}
+                {"Global Variable", "2"},
+                {"Local Variable", "1"},
+                {"Primitive date type", "1"},
+                {"Composite data type variable", "2"}
             },
             new String [] {
                 "Program Conponent", "Weight"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableVariableW);
 
-        jButton1.setBackground(new java.awt.Color(102, 204, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Save");
+        jButtVariablW.setBackground(new java.awt.Color(102, 204, 255));
+        jButtVariablW.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtVariablW.setText("Save");
+        jButtVariablW.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtVariablWActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,26 +71,30 @@ public class VariableWeight extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(188, 188, 188)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelVarableW, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(388, 388, 388)
-                        .addComponent(jButton1)))
+                        .addComponent(jButtVariablW)))
                 .addContainerGap(458, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelVarableW, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtVariablW, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtVariablWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtVariablWActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtVariablWActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,9 +132,9 @@ public class VariableWeight extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtVariablW;
+    private javax.swing.JLabel jLabelVarableW;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableVariableW;
     // End of variables declaration//GEN-END:variables
 }

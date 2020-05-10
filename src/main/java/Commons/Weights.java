@@ -17,6 +17,13 @@ public class Weights {
     public static int caseControlStructure = 1;
 
     //=================================Gayani==========================================================
+
+    //================================Visna============================================================
     
-    
+    public static int NoInheritance = 0;
+    public static int OneUserDefinedInheritance = 1;
+    public static int TwoUserDefinedInheritance = 2;
+    public static int ThreeUserDefinedInheritance = 3;
+    public static int MoreThanThreeUserDefinedInheritance = 4;
+
 }

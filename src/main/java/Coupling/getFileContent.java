@@ -12,10 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner; // Import the Scanner class to read text files
 
-/**
- *
- * @author Tharindu
- */
+
 public class getFileContent {
     
     public List<File> getFileList(String directoryName) {

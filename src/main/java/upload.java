@@ -11,7 +11,7 @@ import Size.SizeTable;
 import Size.VariableTable;
 import ControlStructure.ControlStruc;
 import Inheritance.Inherit;
-import Coupling.CouplingN;
+import Coupling.Main;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -401,7 +401,7 @@ public class upload extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         //--------------------------------------------------Coupling----------------------------------------------------------
-        CouplingN up = new CouplingN();
+        Main up = new Main();
         up.setVisible(true);
 
 //        String msg = jTextArea1.getText();
