@@ -10,7 +10,7 @@ import Size.VariableComplexity;
 import Size.SizeTable;
 import Size.VariableTable;
 import ControlStructure.ControlStruc;
-import Inheritance.Inherit;
+import Inheritance.Inheritance;
 import Coupling.Main;
 import java.io.BufferedReader;
 import java.io.File;
@@ -435,11 +435,11 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        Inherit up = new Inherit();
+        Inheritance up = new Inheritance();
         up.setVisible(true);
 
-//        String msg = jTextArea1.getText();
-//        new Inheritance(msg).setVisible(true);
+        String msg = jTextArea1.getText();
+        new Inheritance(msg).setVisible(true);
         // Load table data
         String fullCode6 = jTextArea1.getText();
 
