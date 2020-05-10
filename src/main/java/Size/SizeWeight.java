@@ -5,6 +5,9 @@
  */
 package Size;
 
+import Commons.Weights;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ISHU
@@ -94,7 +97,15 @@ public class SizeWeight extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSizeWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSizeWActionPerformed
-        // TODO add your handling code here:
+             DefaultTableModel model = (DefaultTableModel)jTableSizeW.getModel();
+
+            Weights.keywordSize = Integer.parseInt(model.getValueAt(0, 1).toString());
+            Weights.identifierSize = Integer.parseInt(model.getValueAt(1, 1).toString());
+            Weights.operatorSize = Integer.parseInt(model.getValueAt(2, 1).toString());
+            Weights.numericalValueSize = Integer.parseInt(model.getValueAt(3, 1).toString());
+            Weights.stringliteralSize = Integer.parseInt(model.getValueAt(4, 1).toString());
+
+        dispose();
     }//GEN-LAST:event_jButtonSizeWActionPerformed
 
     /**

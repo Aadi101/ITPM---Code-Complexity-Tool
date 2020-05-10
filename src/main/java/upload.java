@@ -12,6 +12,8 @@ import Size.VariableTable;
 import ControlStructure.ControlStruc;
 import Inheritance.Inheritance;
 import Coupling.Main;
+import FinalRepo.FinalReportTable;
+import Inheritance.Inheritance;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -159,7 +161,6 @@ public class upload extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        prabhaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1147, 800));
@@ -285,9 +286,7 @@ public class upload extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(406, 406, 406))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(prabhaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(476, 476, 476))
         );
@@ -314,9 +313,7 @@ public class upload extends javax.swing.JFrame {
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(prabhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(118, Short.MAX_VALUE))
         );
 
@@ -431,8 +428,15 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        FinalReportTable up = new FinalReportTable(jTextArea1.getText());
+        up.setVisible(true);
+        String fullCode6 = jTextArea1.getText();
+        String[] lines = fullCode6.split("\n");
+        int lineCount = lines.length;
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
         Inheritance up = new Inheritance();
@@ -508,7 +512,7 @@ public class upload extends javax.swing.JFrame {
             String Nnid = Integer.toString(Csval);
 
             //String value of the Nid will display in the interface of Upload.java.
-            prabhaLabel.setText(Nnid);
+            
 
 //            This is for readt he array.=========Not in use========== This will help you============ 
 //            for(String ss: texx){
@@ -580,6 +584,5 @@ public class upload extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel prabhaLabel;
     // End of variables declaration//GEN-END:variables
 }

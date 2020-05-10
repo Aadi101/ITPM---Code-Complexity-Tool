@@ -21,18 +21,19 @@ public class EditWeights extends javax.swing.JFrame {
     
     public EditWeights() {
         initComponents();
-        tf_wmcms.setText("0");
-        tf_wmcrms.setText("0");
-        tf_wrmcrms.setText("0");
-        tf_wrmcms.setText("0");
-        tf_wmrgvs.setText("0");
-        tf_wrmrgvs.setText("0");
-        tf_wmcmd.setText("0");
-        tf_wmcrmd.setText("0");
-        tf_wrmcrmd.setText("0");
-        tf_wmrgvd.setText("0");
-        tf_wrmrgvd.setText("0");
-        tf_wr.setText("0");
+        tf_wmcms.setText("2");
+        tf_wmcrms.setText("3");
+        tf_wrmcrms.setText("3");
+        tf_wrmcms.setText("4");
+        tf_wmrgvs.setText("4");
+        tf_wrmrgvs.setText("5");
+        tf_wmcmd.setText("3");
+        tf_wmcrmd.setText("4");
+        tf_wrmcrmd.setText("1");
+        tf_wrmcmd.setText("2");
+        tf_wmrgvd.setText("1");
+        tf_wrmrgvd.setText("2");
+        tf_wr.setText("2");
         updateWeights();
     }
 
@@ -46,6 +47,7 @@ public class EditWeights extends javax.swing.JFrame {
         Wmcmd = parseInt(tf_wmcmd.getText());
         Wmcrmd = parseInt(tf_wmcrmd.getText());
         Wrmcrmd = parseInt(tf_wrmcrmd.getText());
+        Wrmcmd = parseInt(tf_wrmcmd.getText());
         Wmrgvd = parseInt(tf_wmrgvd.getText());
         Wrmrgvd = parseInt(tf_wrmrgvd.getText());
         Wr = parseInt(tf_wr.getText());

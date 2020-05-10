@@ -19,7 +19,7 @@ public class ClassObj {
     
     private ArrayList GlobalVariables = new ArrayList<String>();
 
-    
+        
     private Method[] Methods;
     
     public void initMethodArray(int num){
