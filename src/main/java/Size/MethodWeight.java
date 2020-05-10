@@ -5,6 +5,9 @@
  */
 package Size;
 
+import Commons.Weights;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ISHU
@@ -29,7 +32,7 @@ public class MethodWeight extends javax.swing.JFrame {
 
         jLabelMethodW = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableMethod = new javax.swing.JTable();
         jButtMethodWe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,8 +40,8 @@ public class MethodWeight extends javax.swing.JFrame {
         jLabelMethodW.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelMethodW.setText("Weight relatedvto the Method Factor");
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMethod.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTableMethod.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Method with a primitive return type", "1"},
                 {"Method with a composite return type", "2"},
@@ -50,11 +53,16 @@ public class MethodWeight extends javax.swing.JFrame {
                 "Program Component", "Weight"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableMethod);
 
         jButtMethodWe.setBackground(new java.awt.Color(51, 204, 255));
         jButtMethodWe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtMethodWe.setText("Save");
+        jButtMethodWe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtMethodWeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +96,19 @@ public class MethodWeight extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtMethodWeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtMethodWeActionPerformed
+         DefaultTableModel model = (DefaultTableModel)jTableMethod.getModel();
+
+            Weights.methodPrimitiveType = Integer.parseInt(model.getValueAt(0, 1).toString());
+            Weights.methodCompositeType = Integer.parseInt(model.getValueAt(1, 1).toString());
+            Weights.methodVoidType = Integer.parseInt(model.getValueAt(2, 1).toString());
+            Weights.primitiveDataTypeParameter = Integer.parseInt(model.getValueAt(3, 1).toString());
+            Weights.compositeDataTypeParameter = Integer.parseInt(model.getValueAt(4, 1).toString());
+
+        dispose();
+                      
+    }//GEN-LAST:event_jButtMethodWeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,6 +149,6 @@ public class MethodWeight extends javax.swing.JFrame {
     private javax.swing.JButton jButtMethodWe;
     private javax.swing.JLabel jLabelMethodW;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableMethod;
     // End of variables declaration//GEN-END:variables
 }

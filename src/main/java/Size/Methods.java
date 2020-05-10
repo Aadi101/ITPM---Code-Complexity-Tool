@@ -5,6 +5,8 @@
  */
 package Size;
 
+import Commons.Weights;
+
 /**
  *
  * @author ISHU
@@ -61,12 +63,13 @@ public class Methods {
         size.setTextLine(textLine);
         if (size.isMethodDeclarationFound()){
             if (size.isPrimitiveReturnType()){
-                wmrt += 1;
+                wmrt += Weights.methodPrimitiveType;
                 npdtp += 1;
             } else if (size.isCompositeReturnType()){
-                wmrt += 2;
+                wmrt += Weights.methodCompositeType;
                 ncdtp += 1;
             } else if (size.isVoidReturnType()){
+                wmrt += Weights.methodVoidType;
                 npdtp += 1;
             }
         }

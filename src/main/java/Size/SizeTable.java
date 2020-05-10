@@ -5,6 +5,7 @@ package Size;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Commons.Weights;
 import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -248,7 +249,7 @@ public class SizeTable extends javax.swing.JFrame {
             int lineCount = lines.length;
             //System.out.println(result);
             System.out.println(lineCount);
-
+            int totalCs = 0;
             for (int i = 0; i < lineCount; i++) {
                 int Nkw = 0;
                 int Nid = 0;
@@ -265,15 +266,15 @@ public class SizeTable extends javax.swing.JFrame {
                 size.numericValueFind();
                 size.findOperators();
                 
-                Nkw = size.getSumOfKeywords();
-                Nid = size.getSumOfIdentifiers();
-                Nop = size.getSumOfOperators();
-                Nnv = size.getSumOfNumeric();
-                Nsl = size.getSumOfStringLiterals();
+                Nkw = size.getSumOfKeywords() * Weights.keywordSize;
+                Nid = size.getSumOfIdentifiers() * Weights.identifierSize;
+                Nop = size.getSumOfOperators() * Weights.operatorSize;
+                Nnv = size.getSumOfNumeric() * Weights.numericalValueSize;
+                Nsl = size.getSumOfStringLiterals() * Weights.stringliteralSize;
                 
                 Cs = Nkw + Nid + Nop + Nnv + Nsl;
                 
-                
+                totalCs += Cs;
 
 //                String words[] = lines[i].split("\\s");
 
