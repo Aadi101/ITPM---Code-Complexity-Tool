@@ -25,7 +25,8 @@ public class Weights {
     public static int twoUserDefinedInheritance = 2;
     public static int threeUserDefinedInheritance = 3;
     public static int moreThanThreeUserDefinedInheritance = 4;
-
+    
+    //===============================Visna==============================================================
 
     
     //================================Prabhashi============================================================
