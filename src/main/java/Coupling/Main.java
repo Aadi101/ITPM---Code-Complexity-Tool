@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Main extends javax.swing.JFrame {
 
-    public ClassObj classes[];
+    public ClassObj classes[]; //ClassObj cobj = new ClassObj();
     DefaultTableModel model;
     int selectedIndex;
     
@@ -265,7 +265,7 @@ public class Main extends javax.swing.JFrame {
         if(FolderPath.contains(".zip")){
             FolderPath = FolderPath.substring(0,FolderPath.lastIndexOf("\\"));
         }
-        
+        //C;\\User\\Desktop\\CC\\aa.zip
         getFileContent gfc = new getFileContent();
         Extraction ex = new Extraction();
         
@@ -340,6 +340,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void selectedFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectedFileActionPerformed
+        updateWeights();
         int index = jTable1.getSelectedRow();
         System.out.println("Selected row : "+index);
         
@@ -357,12 +358,12 @@ public class Main extends javax.swing.JFrame {
         int Nrmrgvs = calc.Nrmrgvs_recursiveToGlobalVariables();
         
         //Weights
-        int Wrmcrms = 1;
-        int Wmcms = 1;
-        int Wmcrms = 1;
-        int Wrmcms = 1;
-        int Wmrgvs = 1;
-        int Wrmrgvs = 1;
+//        int Wrmcrms = 1;
+//        int Wmcms = 1;
+//        int Wmcrms = 1;
+//        int Wrmcms = 1;
+//        int Wmrgvs = 1;
+//        int Wrmrgvs = 1;
         
         //Calculating Complexity
         Nrmcrms = Nrmcrms * Wrmcrms;
@@ -384,12 +385,12 @@ public class Main extends javax.swing.JFrame {
         int Nrmrgvd = calc.getNrmrgvd();
         
         //Weights
-        int Wmcmd = 3;
-        int Wmcrmd = 4;
-        int Wrmcrmd = 5;
-        int Wrmcmd= 4;
-        int Wmrgvd = 2;
-        int Wrmrgvd = 2;
+//        int Wmcmd = 3;
+//        int Wmcrmd = 4;
+//        int Wrmcrmd = 5;
+//        int Wrmcmd= 4;
+//        int Wmrgvd = 2;
+//        int Wrmrgvd = 2;
          
         
         Nmcmd = Nmcmd * Wmcmd;
@@ -440,6 +441,7 @@ public class Main extends javax.swing.JFrame {
     int totalCom ;
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        updateWeights();
         int size = classes.length;
         
         ArrayList<String> complexities = new ArrayList();
@@ -469,12 +471,12 @@ public class Main extends javax.swing.JFrame {
             int Nrmrgvs = calc.Nrmrgvs_recursiveToGlobalVariables();
 
             //Weights
-            int Wrmcrms = 1;
-            int Wmcms = 1;
-            int Wmcrms = 1;
-            int Wrmcms = 1;
-            int Wmrgvs = 1;
-            int Wrmrgvs = 1;
+//            int Wrmcrms = 1;
+//            int Wmcms = 1;
+//            int Wmcrms = 1;
+//            int Wrmcms = 1;
+//            int Wmrgvs = 1;
+//            int Wrmrgvs = 1;
 
             //Calculating Complexity
             Nrmcrms = Nrmcrms * Wrmcrms;
@@ -496,13 +498,13 @@ public class Main extends javax.swing.JFrame {
             int Nrmrgvd = calc.getNrmrgvd();
 
             //Weights
-            int Wmcmd = 3;
-            int Wmcrmd = 4;
-            int Wrmcrmd = 5;
-            int Wrmcmd= 4;
-            int Wmrgvd = 2;
-            int Wrmrgvd = 2;
-            
+//            int Wmcmd = 3;
+//            int Wmcrmd = 4;
+//            int Wrmcrmd = 5;
+//            int Wrmcmd= 4;
+//            int Wmrgvd = 2;
+//            int Wrmrgvd = 2;
+//            
             Nmcmd = Nmcmd * Wmcmd;
             Nmcrmd = Nmcrmd * Wmcrmd;
             Nrmcrmd = Nrmcrmd * Wrmcrmd;

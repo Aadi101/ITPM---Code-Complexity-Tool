@@ -1,129 +1,152 @@
 package Inheritance;
 
-
-
-import java.io.Console;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Samanmali
  */
 public class Inheritance_Finder {
-    
-    private String FILE_NAME;
-        public static String[] KEYWORDS = { "extends", "implements", ":" };
-        public List<Inheritance> completeList = new ArrayList<>();
-        public int totalDirect = 0;
-        public int totalIndirect = 0;
-        public int totalCi = 0;
-        
-        public Inheritance_Finder()  //Constructor
-        {
 
-        }
-        
-        public void SetFileName(String fileName)
-        {
-            this.FILE_NAME = fileName;
-        }
-        
-        public void ProcessFile()
-        {
+    private static final List<String> keywords = Arrays.asList("extends ", "implements ", ",", ":");
 
-            this.FILE_NAME = "lol.java";
-            System.out.println("tiktok");
+    public static void main(String[] args) throws Exception {
 
-            try
-            {
-                // Create an instance of StreamReader to read from a file.
-                // The using statement also closes the StreamReader.
-               // String PATH_TO_UPLOADED_FILE = HttpContext.Current.Server.MapPath("~/uploadedFiles/" + this.FILE_NAME);
-                String line;
-                
-                FileInputStream st = new FileInputStream ("test.txt");
-                
-                InputStreamReader sr = new InputStreamReader(st);
-                
-//                    while((line= sr.read()) != null){
-//                            System.out.println(line);
-//                    }
-                    
-                    // Read and display lines from the file until the end of 
-                    // the file is reached.
-//                    while ((line = sr.ReadLine()) != null)
-//                    {
-//                        
-//                        this.Identify(line);
-//                    }
-                
-                
-            }
-            catch (Exception e)
-            {
-                // Let the user know what went wrong.
-                System.out.println("The file could not be read:");
-                System.out.println(e.getMessage());
-            }
-        }
-            //Detect Method
+        int ndi = 0, nIndi = 0, ci = 0, tot = 0, total = 0, count = 0;
 
-        public void Identify(String line1)
-        {
-            int direct = 0;
-            int indirect = 0;
-            int ci = 0;
+        try {
+            File file = new File("C:\\Users\\Samanmali\\Documents\\DaysPerMonth.txt");
+            BufferedReader breader = new BufferedReader(new FileReader(file));
+            String line1;
+            while ((line1 = breader.readLine()) != null) {
 
-            String[] KEYWORDS = { "extends", "implements", ":" };
+                String test;
+                String[] words = line1.split("\\s+");
 
-            String[] WORDS = line1.split(line1);
+                int Ndi = 0;
+                String superclass;
+                for (int i = 0; i < words.length; i++) {
 
-            //Check if this line contains keywords
+                    if ("class".equals(words[i])) {
 
-            for (int position = 0; position < WORDS.length; position++)
-            {
-                for (String keyword : KEYWORDS)
-                {
-                    if (WORDS[position] == keyword )//A Keyword on the line is found
-                    {
-                        
-                        for (int temp = position + 1; temp < WORDS.length; temp++)//Checking words after keywords
-                        {
-                            if (WORDS[temp] == ",")
-                            {
-                                if (direct == 0)
-                                {
-                                    direct = direct + 2;//One defined Class found
-                                    this.totalDirect = this.totalDirect + direct;
-                                }
-                                else
-                                {
-                                    direct = direct + 1;
-                                    this.totalDirect = this.totalDirect + direct;
-                                }
+                        System.out.println(words[i + 1].toString() + " Direct Inheritance = " + directInheritance(words[i + 1].toString()));
+                        ndi = directInheritance(words[i + 1].toString());
+                        superclass = words[i + 1].toString();
+
+                        if (words.length > 4) {
+                            if ("extends".equals(words[i + 2])) {
+
+                                System.out.println(words[i + 1] + " Indirect Inheritance = " + indeirectInheritance(words[i + 3], words[i + 1]));
+                                nIndi = indeirectInheritance(words[i + 3], words[i + 1]);
                             }
-                            else if (direct == 0 && WORDS[temp] == "{")
-                            {
-                                direct = direct + 1;
-                                this.totalDirect = this.totalDirect + direct;
-                            }
+                        } else {
+                            nIndi = 0;
+                            System.out.println(words[i + 1] + " Indirect Inheritance = " + nIndi);
                         }
-                        ci = direct + indirect;
-                        this.totalCi = this.totalCi + ci;
-                        
-                        
-                        completeList.add(new Inheritance(line1, indirect, direct, ci));
+
+                        total = ndi + nIndi;
+                        System.out.println(words[i + 1] + " total = " + total);
+                        ci = ndi + nIndi;
+                        System.out.println(words[i + 1] + " Ci = " + ci);
+
+                        tot = ci + tot;
+
+                        String k;
+                        k = words[i + 1];
+
+                        count++;
+                        ArrayList<String> out = new ArrayList<>();
+
+                        out.add(k);
+                        out.add(Integer.toString(ndi));
+                        out.add(Integer.toString(nIndi));
+                        out.add(Integer.toString(ci));
+                        out.add(Integer.toString(total));
+                        System.out.println("\n" + out + "\n");
                     }
                 }
-                //Calculate Ci value 
+
             }
-            if( ci == 0)
-            {
-                completeList.add(new Inheritance(line1, indirect, direct, ci) );
-            }
+            System.out.println("Total CI = " + tot);
+
+//		      DefaultTableModel model1 = new DefaultTableModel();
+//             
+//                model1.addRow(new Object[]{ndi,nIndi,ci,tot,total,count});
+            breader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+    }
+
+    public static int indeirectInheritance(String extendclass, String classname) {
+        String line = null;
+        int indi = 0;
+
+        try {
+            File file = new File("C:\\Users\\Samanmali\\Documents\\DaysPerMonth.txt");
+            BufferedReader breader = new BufferedReader(new FileReader(file));
+            while ((line = breader.readLine()) != null) {
+
+                String[] words1 = line.split("\\s+");
+
+                int di = 0;
+
+                if (directInheritance(classname) == 0) {
+                    indi = 0;
+                }
+                if (directInheritance(classname) == 1) {
+
+                    if (directInheritance(extendclass) == 0) {
+                        indi = 0;
+                    } else {
+                        indi = 1;
+                    }
+
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return indi;
+    }
+
+    public static int directInheritance(String classname) {
+
+        int di = 0;
+        int indi = 0;
+        try {
+
+            File file = new File("C:\\Users\\Samanmali\\Documents\\DaysPerMonth.txt");
+            BufferedReader breader11 = new BufferedReader(new FileReader(file));
+            String line1;
+
+            while ((line1 = breader11.readLine()) != null) {
+                String[] word = line1.split("\\s+");
+                for (int x = 0; x < word.length; x++) {
+                    if ("class".equals(word[x])) {
+                        if (word.length > 4) {
+                            if (classname.equals(word[x + 1])) {
+                                di++;
+                            }
+                        }
+                    }
+                }
+            }
+            breader11.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return di;
+    }
+
 }

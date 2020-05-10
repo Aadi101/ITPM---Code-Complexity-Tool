@@ -10,8 +10,9 @@ import Size.VariableComplexity;
 import Size.SizeTable;
 import Size.VariableTable;
 import ControlStructure.ControlStruc;
-import Inheritance.Inherit;
+import Inheritance.Inheritance;
 import Coupling.Main;
+import FinalRepo.FinalReportTable;
 import Inheritance.Inheritance;
 import java.io.BufferedReader;
 import java.io.File;
@@ -427,15 +428,22 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        FinalReportTable up = new FinalReportTable(jTextArea1.getText());
+        up.setVisible(true);
+        String fullCode6 = jTextArea1.getText();
+        String[] lines = fullCode6.split("\n");
+        int lineCount = lines.length;
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        Inherit up = new Inherit();
+        Inheritance up = new Inheritance();
         up.setVisible(true);
 
-//        String msg = jTextArea1.getText();
-//        new Inheritance(msg).setVisible(true);
+        String msg = jTextArea1.getText();
+        new Inheritance(msg).setVisible(true);
         // Load table data
         String fullCode6 = jTextArea1.getText();
 

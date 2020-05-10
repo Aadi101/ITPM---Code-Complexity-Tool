@@ -19,6 +19,7 @@ public class Inheritance_Weight extends javax.swing.JFrame {
      */
     public Inheritance_Weight() {
         initComponents();
+        
     }
 
     /**
@@ -64,21 +65,21 @@ public class Inheritance_Weight extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125))))
+                        .addGap(125, 125, 125))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(94, 94, 94)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102)
+                .addGap(105, 105, 105)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(174, Short.MAX_VALUE))
         );
@@ -94,11 +95,11 @@ public class Inheritance_Weight extends javax.swing.JFrame {
             //model.setValueAt(jTextField1.getText(), i, 0);
 //            model.setValueAt(jTextField2.getText(), i, 1);
 
-            Weights.NoInheritance = Integer.parseInt(model.getValueAt(0, 1).toString());
-            Weights.OneUserDefinedInheritance = Integer.parseInt(model.getValueAt(1, 1).toString());
-            Weights.TwoUserDefinedInheritance = Integer.parseInt(model.getValueAt(2, 1).toString());
-            Weights.ThreeUserDefinedInheritance = Integer.parseInt(model.getValueAt(3, 1).toString());
-            Weights.MoreThanThreeUserDefinedInheritance = Integer.parseInt(model.getValueAt(4, 1).toString());
+            Weights.noInheritance = Integer.parseInt(model.getValueAt(0, 1).toString());
+            Weights.oneUserDefinedInheritance = Integer.parseInt(model.getValueAt(1, 1).toString());
+            Weights.twoUserDefinedInheritance = Integer.parseInt(model.getValueAt(2, 1).toString());
+            Weights.threeUserDefinedInheritance = Integer.parseInt(model.getValueAt(3, 1).toString());
+            Weights.moreThanThreeUserDefinedInheritance = Integer.parseInt(model.getValueAt(4, 1).toString());
 //        }else{
 //            JOptionPane.showMessageDialog(null, "Error");
 //        }

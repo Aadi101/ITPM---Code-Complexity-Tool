@@ -19,12 +19,14 @@ public class Weights {
     //=================================Gayani==========================================================
 
     //================================Visna============================================================
+
+    public static int noInheritance = 0;
+    public static int oneUserDefinedInheritance = 1;
+    public static int twoUserDefinedInheritance = 2;
+    public static int threeUserDefinedInheritance = 3;
+    public static int moreThanThreeUserDefinedInheritance = 4;
     
-    public static int NoInheritance = 0;
-    public static int OneUserDefinedInheritance = 1;
-    public static int TwoUserDefinedInheritance = 2;
-    public static int ThreeUserDefinedInheritance = 3;
-    public static int MoreThanThreeUserDefinedInheritance = 4;
+    //===============================Visna==============================================================
 
     
     //================================Prabhashi============================================================
