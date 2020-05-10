@@ -5,6 +5,9 @@
  */
 package Size;
 
+import Commons.Weights;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ISHU
@@ -93,7 +96,15 @@ public class VariableWeight extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtVariablWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtVariablWActionPerformed
-        // TODO add your handling code here:
+         DefaultTableModel model = (DefaultTableModel)jTableVariableW.getModel();
+
+            Weights.globalVariable = Integer.parseInt(model.getValueAt(0, 2).toString());
+            Weights.localVariable = Integer.parseInt(model.getValueAt(1, 1).toString());
+            Weights.primitiveDataType = Integer.parseInt(model.getValueAt(2, 1).toString());
+            Weights.compositeDataType = Integer.parseInt(model.getValueAt(3, 2).toString());
+            
+
+        dispose();
     }//GEN-LAST:event_jButtVariablWActionPerformed
 
     /**
