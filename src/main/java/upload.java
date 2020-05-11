@@ -428,7 +428,7 @@ public class upload extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        FinalReportTable up = new FinalReportTable();
+        FinalReportTable up = new FinalReportTable(jTextArea1.getText());
         up.setVisible(true);
         String fullCode6 = jTextArea1.getText();
         String[] lines = fullCode6.split("\n");

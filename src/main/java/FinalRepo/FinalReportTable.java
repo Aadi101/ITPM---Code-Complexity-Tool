@@ -5,17 +5,27 @@
  */
 package FinalRepo;
 
+import ControlStructure.CalculateControlStruct;
+import java.util.Stack;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Asus
  */
 public class FinalReportTable extends javax.swing.JFrame {
 
+    Stack ccsStack = new Stack();
+    int currentCcs = 0;
+    String[] lines ;
+
     /**
      * Creates new form FinalReportTable
      */
-    public FinalReportTable() {
+    public FinalReportTable(String code) {
         initComponents();
+        lines = code.split("\n");
+        calculateFinalValues();
     }
 
     /**
@@ -67,6 +77,62 @@ public class FinalReportTable extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void calculateFinalValues() {
+
+       for(String line : lines){
+           int ccs = this.calculateControlStructs(line);
+           
+           
+           Object[] row = new Object[]{ccs};
+           DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+           model.addRow(row);
+       }
+//        System.out.println(val);
+    }
+
+    private int calculateControlStructs(String line){
+        
+        
+                    CalculateControlStruct calculateControlStruct = new CalculateControlStruct();
+                    Object[] row;
+                    int weight = 0;
+                    int nc = 0;
+                    int ccpps = 0;
+                    int ccs = 0;
+                    int totalccs = 0;
+                    String codeSegment = calculateControlStruct.getControllerCodeSegment(line);
+                    String type = calculateControlStruct.getGontrolStructureType(codeSegment);
+                    int closingTagCount = calculateControlStruct.numberOfClosingTags(line);
+                    int openingTagCount = calculateControlStruct.numberOfOpeningTags(line);
+                    System.out.println(codeSegment);
+
+                    if (closingTagCount > 0) {
+                        for (int i = 0; i < closingTagCount; i++) {
+                            currentCcs = (int) ccsStack.pop();
+                        }
+                    }
+                    if (type.isEmpty()) {
+                        if (openingTagCount > 0) {
+                            ccsStack.push(currentCcs);
+                        }
+                        row = new Object[]{ccs};
+//                this.lineComplexityTableModel.addRow(new Object[]{lineObj.lineNumber, lineObj.statement, null, null, null, 0});
+                    } else {
+                        weight = calculateControlStruct.getWeight(type);
+                        nc = calculateControlStruct.getNumberOfConditions(codeSegment);
+                        ccpps = (int) ccsStack.lastElement();
+                        ccs = (weight * nc) + ccpps;
+                        currentCcs = ccs;
+                        totalccs += ccs;
+                        if (openingTagCount > 0) {
+                            ccsStack.push(currentCcs);
+                        }
+                        row = new Object[]{ccs};
+                    }
+
+        
+        return totalccs;
+    }
     /**
      * @param args the command line arguments
      */
@@ -97,7 +163,7 @@ public class FinalReportTable extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FinalReportTable().setVisible(true);
+                new FinalReportTable(null).setVisible(true);
             }
         });
     }
