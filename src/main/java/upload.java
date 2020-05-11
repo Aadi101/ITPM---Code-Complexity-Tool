@@ -533,6 +533,7 @@ public class upload extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextArea1.setText("");
     }
 
     /**

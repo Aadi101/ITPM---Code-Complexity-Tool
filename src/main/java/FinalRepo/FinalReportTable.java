@@ -78,12 +78,19 @@ public class FinalReportTable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void calculateFinalValues() {
-
+       int index = 1;
        for(String line : lines){
+           
            int ccs = this.calculateControlStructs(line);
+           //Add other functions========================================================================================
+           int cs=0;
+           int cv=0;
+           int cm=0;
+           int ci=0;
+           int ccp=0;
            
            
-           Object[] row = new Object[]{ccs};
+           Object[] row = new Object[]{index++, line, cs, cv, cm, ci, ccp, ccs};
            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
            model.addRow(row);
        }
@@ -92,7 +99,7 @@ public class FinalReportTable extends javax.swing.JFrame {
 
     private int calculateControlStructs(String line){
         
-        
+                 
                     CalculateControlStruct calculateControlStruct = new CalculateControlStruct();
                     Object[] row;
                     int weight = 0;
