@@ -59,7 +59,7 @@ public class Main extends javax.swing.JFrame {
         model.addColumn("Class Name");
         ew = new EditWeights();
         
-        if(!_fpath.isBlank()){
+        if(!_fpath.isEmpty()){
             jButton1.setEnabled(false);
             jTextField1.setText(_fpath);
         }

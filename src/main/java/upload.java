@@ -403,7 +403,7 @@ public class upload extends javax.swing.JFrame {
         // TODO add your handling code here:
         //--------------------------------------------------Coupling----------------------------------------------------------
 
-        if(fpath.isBlank()){// ..isBlank() detects spaces as empty while isEmpty detects space as a character
+        if(fpath.isEmpty()){// ..isEmpty() detects spaces as empty while isEmpty detects space as a character
             JOptionPane.showMessageDialog(this, "You should import a Text File for the text area !");
         }
         else{
