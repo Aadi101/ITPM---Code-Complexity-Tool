@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class Inheritance extends javax.swing.JFrame {
 
-    ArrayList<String> classNames;
+    ArrayList<String> classNames = new ArrayList<>();
     
     Inheritance_Weight in;
     
@@ -326,12 +326,13 @@ public class Inheritance extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
 
-        
+        DefaultTableModel modelReset = (DefaultTableModel) jTable1.getModel();
+        modelReset.setRowCount(0);
         String[] lines = jTextArea1.getText().split("\n");
         int lineCount = lines.length;
 //        int ndi = 0, nIndi = 0, ci = 0, tot = 0, total = 0, count = 0;
-
-        try {
+        classNames = new ArrayList<>();
+        //try {
             int parentIindex = 0;
 
             for (String line : lines) {
@@ -339,7 +340,7 @@ public class Inheritance extends javax.swing.JFrame {
                 String[] words = line.split("\\s+");
 
                 String superclass;
-                try {
+//                try {
                     for (int i = 0; i < words.length; i++) {
 
                         if ("class".equals(words[i])) {
@@ -358,21 +359,23 @@ public class Inheritance extends javax.swing.JFrame {
                                 System.out.println(words[i + 1] + " Indirect Inheritance = " + nIndi);
                             }
 
+                            
+
+                            String k;
+                            k = words[i + 1];
+                            
+                            classNames.add(k);
+                            int weigthDueToInherit = this.calculateWeightDueToNumOfInheritance(k);
+                            count++;
+                            ArrayList<String> out = new ArrayList<>();
+                            ndi *= weigthDueToInherit;
+                            nIndi *= weigthDueToInherit;
                             total = ndi + nIndi;
                             System.out.println(words[i + 1] + " total = " + total);
                             ci = ndi + nIndi;
                             System.out.println(words[i + 1] + " Ci = " + ci);
 
                             tot = ci + tot;
-
-                            String k;
-                            k = words[i + 1];
-                            
-                            //classNames.add(k);
-                            //int weigthDueToInherit = this.calculateWeightDueToNumOfInheritance(k);
-                            //count++;
-                            ArrayList<String> out = new ArrayList<>();
-                            
                             out.add(k);
                             out.add(Integer.toString(ndi));
                             out.add(Integer.toString(nIndi));
@@ -386,15 +389,15 @@ public class Inheritance extends javax.swing.JFrame {
                             model.addRow(row);
                         }
                     }
-                } catch (Exception e) {
-                    System.out.println(e.toString());
-                }
+//                } catch (Exception e) {
+//                    System.out.println(e.toString());
+//                }
 
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 //                DefaultTableModel model1 = new DefaultTableModel();
 //                            model1.addRow(new Object[]{ndi,nIndi,ci,tot,total,count});
@@ -438,18 +441,18 @@ public class Inheritance extends javax.swing.JFrame {
             }
         }
 
-        updateWeights();//Updates global weights variables
+//        updateWeights();//Updates global weights variables
         
         switch (numOfFounds) {
             case 0:
-                return this.oneUserDefinedInheritance;
+                return Weights.oneUserDefinedInheritance;
             case 1:
-                return this.twoUserDefinedInheritance;
+                return Weights.twoUserDefinedInheritance;
             case 2:
-                return this.threeUserDefinedInheritance;
+                return Weights.threeUserDefinedInheritance;
             default: {
                 if (numOfFounds > 3) {
-                    return this.moreThanThreeUserDefinedInheritance;
+                    return Weights.moreThanThreeUserDefinedInheritance;
                 }
             }
         }
