@@ -34,6 +34,16 @@ import java.util.List;
 public class Inheritance extends javax.swing.JFrame {
 
     ArrayList<String> classNames;
+    
+    Inheritance_Weight in;
+    
+    //Later on these variables will be assigned with newly assigned values in inheritance_weight object
+    public int noInheritance = 0;
+    public int oneUserDefinedInheritance = 0;
+    public int twoUserDefinedInheritance = 0;
+    public int threeUserDefinedInheritance = 0;
+    public int moreThanThreeUserDefinedInheritance = 0;
+    
 
     /**
      * Creates new form Inheritance
@@ -316,6 +326,7 @@ public class Inheritance extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
 
+        
         String[] lines = jTextArea1.getText().split("\n");
         int lineCount = lines.length;
 //        int ndi = 0, nIndi = 0, ci = 0, tot = 0, total = 0, count = 0;
@@ -405,10 +416,19 @@ public class Inheritance extends javax.swing.JFrame {
         int x = JOptionPane.showConfirmDialog(null, data, "Code Complexity due to Inheritance", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (x ==0){
                 
-                new Inheritance_Weight().setVisible(true);
+                in = new Inheritance_Weight();
+                in.setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public void updateWeights(){
+       noInheritance = in.noInheritance;
+       oneUserDefinedInheritance = in.oneUserDefinedInheritance ;
+       twoUserDefinedInheritance = in.twoUserDefinedInheritance;
+       threeUserDefinedInheritance = in.threeUserDefinedInheritance;
+       moreThanThreeUserDefinedInheritance = in.moreThanThreeUserDefinedInheritance;
+     }
+    
     private int calculateWeightDueToNumOfInheritance(String className) {
         int weight = 0;
         int numOfFounds = 0;
@@ -418,20 +438,22 @@ public class Inheritance extends javax.swing.JFrame {
             }
         }
 
+        updateWeights();//Updates global weights variables
+        
         switch (numOfFounds) {
             case 0:
-                return Weights.oneUserDefinedInheritance;
+                return this.oneUserDefinedInheritance;
             case 1:
-                return Weights.twoUserDefinedInheritance;
+                return this.twoUserDefinedInheritance;
             case 2:
-                return Weights.threeUserDefinedInheritance;
+                return this.threeUserDefinedInheritance;
             default: {
                 if (numOfFounds > 3) {
-                    return Weights.moreThanThreeUserDefinedInheritance;
+                    return this.moreThanThreeUserDefinedInheritance;
                 }
             }
         }
-        return Weights.noInheritance;
+        return this.noInheritance;
     }
 
     /**

@@ -40,6 +40,8 @@ import javax.swing.JTable;
  * @author Asus
  */
 public class upload extends javax.swing.JFrame {
+    
+    public String fpath="";
 
     private void unzipFunction(String destinationFolder, String zipFile) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -354,6 +356,8 @@ public class upload extends javax.swing.JFrame {
             } else {
                 //Read the file from the file path
                 FileReader reader = new FileReader(filename);
+                //Assigning file path to a global variable so others can access the fpath
+                fpath = filename;
                 //buffer reader 
                 BufferedReader br = new BufferedReader(reader);
                 //write the file into our text area
@@ -398,20 +402,16 @@ public class upload extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         //--------------------------------------------------Coupling----------------------------------------------------------
-        Main up = new Main();
-        up.setVisible(true);
 
-//        String msg = jTextArea1.getText();
-//        new Coupling(msg).setVisible(true);
-        // Load table data
-        String fullCode6 = jTextArea1.getText();
-
-        if (fullCode6.isEmpty()) {
-
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
-        } else {
+        if(fpath.isBlank()){// ..isBlank() detects spaces as empty while isEmpty detects space as a character
+            JOptionPane.showMessageDialog(this, "You should import a Text File for the text area !");
         }
+        else{
+            Main up = new Main(fpath);
+            up.setVisible(true);
+        }
+        
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
 

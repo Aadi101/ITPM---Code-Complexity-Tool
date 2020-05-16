@@ -36,6 +36,9 @@ public class Main extends javax.swing.JFrame {
     public int Wr;
     
     EditWeights ew;
+    
+    //Used when single file is selected from the main GUI
+    public String fpath;
     /** 
      * Creates new form Main
      */
@@ -45,6 +48,21 @@ public class Main extends javax.swing.JFrame {
         jTable1.setModel(model);
         model.addColumn("Class Name");
         ew = new EditWeights();
+        jButton3.setEnabled(false);
+
+    }
+    
+    public Main(String _fpath){
+        initComponents();
+        model = new DefaultTableModel();
+        jTable1.setModel(model);
+        model.addColumn("Class Name");
+        ew = new EditWeights();
+        
+        if(!_fpath.isBlank()){
+            jButton1.setEnabled(false);
+            jTextField1.setText(_fpath);
+        }
     }
 
     /**
@@ -68,6 +86,7 @@ public class Main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -145,6 +164,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Clear Selection");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,8 +190,9 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jButton2)
                                 .addGap(88, 88, 88)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,10 +208,9 @@ public class Main extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(selectedFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addContainerGap())
+                                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                            .addComponent(selectedFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,12 +225,14 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2))
+                        .addComponent(jButton2)
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jButton6)))
-                .addGap(63, 63, 63)
-                .addComponent(jLabel2)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -226,6 +254,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jButton3.setEnabled(false );
+        jTextField1.setText("");
         String fpath = "";
         //jTextField1.setText("C:\\Users\\Tharindu\\Desktop\\A");
         JFileChooser fileChooser = new JFileChooser();
@@ -262,79 +292,155 @@ public class Main extends javax.swing.JFrame {
         updateWeights();
         String FolderPath = jTextField1.getText().toString();
         
-        if(FolderPath.contains(".zip")){
-            FolderPath = FolderPath.substring(0,FolderPath.lastIndexOf("\\"));
-        }
-        //C;\\User\\Desktop\\CC\\aa.zip
-        getFileContent gfc = new getFileContent();
-        Extraction ex = new Extraction();
-        
-        List <File> FL = gfc.getFileList(FolderPath);
-        int NoOfFiles = FL.size();
+        if(!FolderPath.contains(".java")){
+            if(FolderPath.contains(".zip")){
+                FolderPath = FolderPath.substring(0,FolderPath.lastIndexOf("\\"));
+            }
+            //C;\\User\\Desktop\\CC\\aa.zip
+            getFileContent gfc = new getFileContent();
+            Extraction ex = new Extraction();
 
-        classes = new ClassObj[NoOfFiles];
-        
-        for(int i = 0; i < NoOfFiles; i++){
-            System.out.println(" -------------- Starting class "+i+" init process -------------- ");
-            System.out.println("Location : "+FL.get(i).toString());
-            
-            System.out.println("Extracting class name from file");
-            String cName = gfc.getClassNameFromFilePath(FL.get(i).toString());
-            System.out.println("Extracting name from file - Done.");
-            
-            classes[i] = new ClassObj();
-            classes[i].setClassName(cName);
-            System.out.println("Class obj initialized and name assigned : successful");
-            
-            System.out.println("Set file content to class obj");
-            classes[i].setContent(gfc.readFileToArrayList(FL.get(i).toString()));
-            System.out.println("content set : Done");
-            
-            System.out.println("Calculating depth");
-            classes[i].setDepthInfo(ex.calcDepth(classes[i].getContent()));
-            System.out.println("Depth info set : Done");
-            
-            System.out.println("Setting function list to obj");
-            classes[i].setFunctions(ex.extractFunctionNames(classes[i].getContent(), classes[i].getDepthInfo(),cName.toLowerCase()));
-            System.out.println("Functions set insert: Done");
-            
-            System.out.println("Initalizing MethodArray");
-            classes[i].initMethodArray(classes[i].getMethodCount());
-            System.out.println("InitMethodArray : Done | "+classes[i].getMethodCount()+" methods.");
-           
+            List <File> FL = gfc.getFileList(FolderPath);
+            int NoOfFiles = FL.size();
 
-            for(int j = 0; j < classes[i].getMethodCount(); j++){
-                System.out.println("--- Method :"+j+" -> "+classes[i].getFunctionName(j));
-                classes[i].assignMethodContent(ex.extractFunctionBody(classes[i].getContent(), classes[i].getDepthInfo(), classes[i].getFunctionName(j)), j,classes[i].getFunctionName(j));
+            classes = new ClassObj[NoOfFiles];
+
+            for(int i = 0; i < NoOfFiles; i++){
+                System.out.println(" -------------- Starting class "+i+" init process -------------- ");
+                System.out.println("Location : "+FL.get(i).toString());
+
+                System.out.println("Extracting class name from file");
+                String cName = gfc.getClassNameFromFilePath(FL.get(i).toString());
+                System.out.println("Extracting name from file - Done.");
+
+                classes[i] = new ClassObj();
+                classes[i].setClassName(cName);
+                System.out.println("Class obj initialized and name assigned : successful");
+
+                System.out.println("Set file content to class obj");
+                classes[i].setContent(gfc.readFileToArrayList(FL.get(i).toString()));
+                System.out.println("content set : Done");
+
+                System.out.println("Calculating depth");
+                classes[i].setDepthInfo(ex.calcDepth(classes[i].getContent()));
+                System.out.println("Depth info set : Done");
+
+                System.out.println("Setting function list to obj");
+                classes[i].setFunctions(ex.extractFunctionNames(classes[i].getContent(), classes[i].getDepthInfo(),cName.toLowerCase()));
+                System.out.println("Functions set insert: Done");
+
+                System.out.println("Initalizing MethodArray");
+                classes[i].initMethodArray(classes[i].getMethodCount());
+                System.out.println("InitMethodArray : Done | "+classes[i].getMethodCount()+" methods.");
+
+
+                for(int j = 0; j < classes[i].getMethodCount(); j++){
+                    System.out.println("--- Method :"+j+" -> "+classes[i].getFunctionName(j));
+                    classes[i].assignMethodContent(ex.extractFunctionBody(classes[i].getContent(), classes[i].getDepthInfo(), classes[i].getFunctionName(j)), j,classes[i].getFunctionName(j));
+                }
+
+
+                classes[i].setRecursiveFunctions(ex.extractRecursiveFunctionNames(classes[i].getAllMethods()));
+                classes[i].setRegularFunctions(ex.extractRegularFunctionNames(classes[i].getFunctions(), classes[i].getRecursiveFunctionsList()));
+
+                System.out.println("recursiveCount : " + classes[i].getRecursiveFunctionsList().size());
+                System.out.println("regularCount : " + classes[i].getRegularFunctionsList().size());
+                System.out.println(classes[i].getRecursiveFunctionsList());
+                System.out.println(classes[i].getRegularFunctionsList());
+
+                System.out.println(" -------------- Class "+i+" Complete --------------  \n");
+
+
             }
 
-            
-            classes[i].setRecursiveFunctions(ex.extractRecursiveFunctionNames(classes[i].getAllMethods()));
-            classes[i].setRegularFunctions(ex.extractRegularFunctionNames(classes[i].getFunctions(), classes[i].getRecursiveFunctionsList()));
-            
-            System.out.println("recursiveCount : " + classes[i].getRecursiveFunctionsList().size());
-            System.out.println("regularCount : " + classes[i].getRegularFunctionsList().size());
-            System.out.println(classes[i].getRecursiveFunctionsList());
-            System.out.println(classes[i].getRegularFunctionsList());
-            
-            System.out.println(" -------------- Class "+i+" Complete --------------  \n");
-            
-            
-        }
-
-        int rowCount = model.getRowCount();
-        if(rowCount>0){
-            for(int i = 0; i<rowCount; i++){
-                model.removeRow(0);
+            int rowCount = model.getRowCount();
+            if(rowCount>0){
+                for(int i = 0; i<rowCount; i++){
+                    model.removeRow(0);
+                }
             }
-        }
+
+            for(int i=0; i < classes.length; i++){
+                model.addRow(new Object[]{classes[i].getName()});//This line can be a false positive in function detection (),{
+            }
+            System.out.println("Count end ::::: "+model.getRowCount());
         
-        for(int i=0; i < classes.length; i++){
-            model.addRow(new Object[]{classes[i].getName()});//This line can be a false positive in function detection (),{
         }
-        System.out.println("Count end ::::: "+model.getRowCount());
+        else{//if selected is a single java file 
+            processesSingleFile(FolderPath);
+            int rowCount = model.getRowCount();
+            if(rowCount>0){
+                for(int i = 0; i<rowCount; i++){
+                    model.removeRow(0);
+                }
+            }
+
+            for(int i=0; i < classes.length; i++){
+                model.addRow(new Object[]{classes[i].getName()});//This line can be a false positive in function detection (),{
+            }
+            System.out.println("Count end ::::: "+model.getRowCount());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public String processesSingleFile(String FilePath){
+    
+            getFileContent gfc = new getFileContent();
+            Extraction ex = new Extraction();
+
+            //List <File> FL = gfc.getFileList(FolderPath);
+            int NoOfFiles = 1;
+
+            classes = new ClassObj[NoOfFiles];
+
+            for(int i = 0; i < NoOfFiles; i++){
+                System.out.println(" -------------- Starting class "+i+" init process -------------- ");
+                //System.out.println("Location : "+FL.get(i).toString());
+
+                System.out.println("Extracting class name from file");
+                String cName = gfc.getClassNameFromFilePath(FilePath);
+                System.out.println("Extracting name from file - Done.");
+
+                classes[i] = new ClassObj();
+                classes[i].setClassName(cName);
+                System.out.println("Class obj initialized and name assigned : successful");
+
+                System.out.println("Set file content to class obj");
+                classes[i].setContent(gfc.readFileToArrayList(FilePath));
+                System.out.println("content set : Done");
+
+                System.out.println("Calculating depth");
+                classes[i].setDepthInfo(ex.calcDepth(classes[i].getContent()));
+                System.out.println("Depth info set : Done");
+
+                System.out.println("Setting function list to obj");
+                classes[i].setFunctions(ex.extractFunctionNames(classes[i].getContent(), classes[i].getDepthInfo(),cName.toLowerCase()));
+                System.out.println("Functions set insert: Done");
+
+                System.out.println("Initalizing MethodArray");
+                classes[i].initMethodArray(classes[i].getMethodCount());
+                System.out.println("InitMethodArray : Done | "+classes[i].getMethodCount()+" methods.");
+
+
+                for(int j = 0; j < classes[i].getMethodCount(); j++){
+                    System.out.println("--- Method :"+j+" -> "+classes[i].getFunctionName(j));
+                    classes[i].assignMethodContent(ex.extractFunctionBody(classes[i].getContent(), classes[i].getDepthInfo(), classes[i].getFunctionName(j)), j,classes[i].getFunctionName(j));
+                }
+
+
+                classes[i].setRecursiveFunctions(ex.extractRecursiveFunctionNames(classes[i].getAllMethods()));
+                classes[i].setRegularFunctions(ex.extractRegularFunctionNames(classes[i].getFunctions(), classes[i].getRecursiveFunctionsList()));
+
+                System.out.println("recursiveCount : " + classes[i].getRecursiveFunctionsList().size());
+                System.out.println("regularCount : " + classes[i].getRegularFunctionsList().size());
+                System.out.println(classes[i].getRecursiveFunctionsList());
+                System.out.println(classes[i].getRegularFunctionsList());
+
+                System.out.println(" -------------- Class "+i+" Complete --------------  \n");
+        }
+            
+        return "";
+    }
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         selectedIndex = jTable1.getSelectedRow();
     }//GEN-LAST:event_jTable1MouseClicked
@@ -573,6 +679,12 @@ public class Main extends javax.swing.JFrame {
             ew.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jTextField1.setText("");
+        jButton3.setEnabled(false);
+        jButton1.setEnabled(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public void updateWeights(){
         Wmcms = ew.Wmcms;
         Wrmcrms = ew.Wrmcrms;
@@ -626,6 +738,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

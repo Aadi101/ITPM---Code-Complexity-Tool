@@ -14,6 +14,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Inheritance_Weight extends javax.swing.JFrame {
 
+   public int noInheritance = 0;
+   public int oneUserDefinedInheritance = 0;
+   public int twoUserDefinedInheritance = 0;
+   public int threeUserDefinedInheritance = 0;
+   public int moreThanThreeUserDefinedInheritance = 0;
     /**
      * Creates new form Inheritance_Weight
      */
