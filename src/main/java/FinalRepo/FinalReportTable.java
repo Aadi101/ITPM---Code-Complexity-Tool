@@ -82,11 +82,11 @@ public class FinalReportTable extends javax.swing.JFrame {
        for(String line : lines){
            
            int ccs = this.calculateControlStructs(line);
+           int ci = this.calculateInheritance(line);
            //Add other functions========================================================================================
            int cs=0;
            int cv=0;
            int cm=0;
-           int ci=0;
            int ccp=0;
            
            
@@ -140,6 +140,15 @@ public class FinalReportTable extends javax.swing.JFrame {
         
         return totalccs;
     }
+    
+    
+    private int calculateInheritance(String line){
+        return 0;
+    
+    
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
