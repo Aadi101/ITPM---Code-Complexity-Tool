@@ -1,26 +1,20 @@
 package Inheritance;
 
 import Commons.Weights;
-import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.print.PrintException;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.io.BufferedReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -50,7 +44,6 @@ public class Inheritance extends javax.swing.JFrame {
      */
     public Inheritance() {
         initComponents();
-        //showData();
     }
 
     public Inheritance(String para) {
@@ -207,11 +200,9 @@ public class Inheritance extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //private static final List<String> keywords = Arrays.asList("extends ", "implements ", ",", ":");
     public int directInheritance(String classname) {
 
         int di = 0;
-        int indi = 0;
         try {
 
             //BufferedReader breader11 = new BufferedReader(new FileReader(file));
@@ -251,24 +242,17 @@ public class Inheritance extends javax.swing.JFrame {
 
                 String[] words1 = line.split("\\s+");
 
-                int di = 0;
-                // for (int x =0; x < words1.length ; x++) {
-
                 if (directInheritance(classname) == 0) {
                     indi = 0;
                 }
                 if (directInheritance(classname) == 1) {
-
                     if (directInheritance(extendclass) == 0) {
                         indi = 0;
                     } else {
                         indi = 1;
                     }
-
                 }
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -293,7 +277,6 @@ public class Inheritance extends javax.swing.JFrame {
         System.out.println(filearr);
 
         String fileNames = files[0].getAbsolutePath();
-
         System.out.println("length of files[] is:" + files.length);
 
         jTextField1.setText(fileNames);
@@ -330,17 +313,15 @@ public class Inheritance extends javax.swing.JFrame {
         modelReset.setRowCount(0);
         String[] lines = jTextArea1.getText().split("\n");
         int lineCount = lines.length;
-//        int ndi = 0, nIndi = 0, ci = 0, tot = 0, total = 0, count = 0;
         classNames = new ArrayList<>();
-        //try {
-            int parentIindex = 0;
+        int parentIindex = 0;
 
             for (String line : lines) {
                 int ndi = 0, nIndi = 0, ci = 0, tot = 0, total = 0, count = 0;
                 String[] words = line.split("\\s+");
 
                 String superclass;
-//                try {
+                
                     for (int i = 0; i < words.length; i++) {
 
                         if ("class".equals(words[i])) {
@@ -358,8 +339,6 @@ public class Inheritance extends javax.swing.JFrame {
                                 nIndi = 0;
                                 System.out.println(words[i + 1] + " Indirect Inheritance = " + nIndi);
                             }
-
-                            
 
                             String k;
                             k = words[i + 1];
@@ -389,19 +368,7 @@ public class Inheritance extends javax.swing.JFrame {
                             model.addRow(row);
                         }
                     }
-//                } catch (Exception e) {
-//                    System.out.println(e.toString());
-//                }
-
             }
-
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
-//                DefaultTableModel model1 = new DefaultTableModel();
-//                            model1.addRow(new Object[]{ndi,nIndi,ci,tot,total,count});
-
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -440,8 +407,6 @@ public class Inheritance extends javax.swing.JFrame {
                 numOfFounds += 1;
             }
         }
-
-//        updateWeights();//Updates global weights variables
         
         switch (numOfFounds) {
             case 0:
