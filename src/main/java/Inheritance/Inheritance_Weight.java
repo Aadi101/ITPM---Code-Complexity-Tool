@@ -23,8 +23,7 @@ public class Inheritance_Weight extends javax.swing.JFrame {
      * Creates new form Inheritance_Weight
      */
     public Inheritance_Weight() {
-        initComponents();
-        
+        initComponents();    
     }
 
     /**
@@ -94,20 +93,14 @@ public class Inheritance_Weight extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          //        int i = jTable1.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-//        if(i>= 0){
-            //model.setValueAt(jTextField1.getText(), i, 0);
-//            model.setValueAt(jTextField2.getText(), i, 1);
 
             Weights.noInheritance = Integer.parseInt(model.getValueAt(0, 1).toString());
             Weights.oneUserDefinedInheritance = Integer.parseInt(model.getValueAt(1, 1).toString());
             Weights.twoUserDefinedInheritance = Integer.parseInt(model.getValueAt(2, 1).toString());
             Weights.threeUserDefinedInheritance = Integer.parseInt(model.getValueAt(3, 1).toString());
             Weights.moreThanThreeUserDefinedInheritance = Integer.parseInt(model.getValueAt(4, 1).toString());
-//        }else{
-//            JOptionPane.showMessageDialog(null, "Error");
-//        }
+            
         dispose();
 
 
