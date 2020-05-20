@@ -7,10 +7,6 @@ package FinalRepo;
 
 import Commons.Weights;
 import ControlStructure.CalculateControlStruct;
-import Inheritance.Inheritance_Finder;
-import java.io.BufferedReader;
-import java.io.Reader;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.table.DefaultTableModel;
@@ -108,7 +104,6 @@ public class FinalReportTable extends javax.swing.JFrame {
 
     private int calculateControlStructs(String line){
         
-                 
                     CalculateControlStruct calculateControlStruct = new CalculateControlStruct();
                     Object[] row;
                     int weight = 0;
@@ -157,7 +152,6 @@ public class FinalReportTable extends javax.swing.JFrame {
                 String[] words = line.split("\\s+");
 
                 String superclass;
-//                try {
                     for (int i = 0; i < words.length; i++) {
 
                         if ("class".equals(words[i])) {
@@ -167,17 +161,13 @@ public class FinalReportTable extends javax.swing.JFrame {
 
                             if (words.length > 4) {
                                 if ("extends".equals(words[i + 2])) {
-//                                    if (line.contains("extends")) {
 
-//                                    System.out.println(words[i + 1] + " Indirect Inheritance = " + indeirectInheritance(words[i + 3], words[i + 1]));
                                     nIndi = indeirectInheritance(words[i + 3], words[i + 1], line);
                                 }
                             } else {
                                 nIndi = 0;
                                 System.out.println(words[i + 1] + " Indirect Inheritance = " + nIndi);
                             }
-
-                            
 
                             String k;
                             k = words[i + 1];
@@ -193,27 +183,16 @@ public class FinalReportTable extends javax.swing.JFrame {
                             ci = ndi + nIndi;
                             System.out.println(words[i + 1] + " Ci = " + ci);
 
-                            tot = ci + tot;
-                            
+                            tot = ci + tot;             
                         }
                     }
-                    return ci;
-       
+                    return ci;   
     }
     
     public int directInheritance(String classname, String line) {
 
         int di = 0;
-        int indi = 0;
         try {
-
-            //BufferedReader breader11 = new BufferedReader(new FileReader(file));
-//            Reader inputString = new StringReader(jTextArea1.getText().toString());
-//
-//            BufferedReader breader11 = new BufferedReader(inputString);
-//            String line1;
-
-//            while ((line1 = breader11.readLine()) != null) {
                 String[] word = line.split("\\s+");
                 for (int x = 0; x < word.length; x++) {
                     if ("class".equals(word[x])) {
@@ -224,8 +203,6 @@ public class FinalReportTable extends javax.swing.JFrame {
                         }
                     }
                 }
-//            }
-//            breader11.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -233,14 +210,9 @@ public class FinalReportTable extends javax.swing.JFrame {
     }
 
     public int indeirectInheritance(String extendclass, String classname, String line) {
-//        String line = null;
         int indi = 0;
 
         try {
-//
-//            Reader inputString = new StringReader(jTextArea1.getText().toString());
-//            BufferedReader br = new BufferedReader(inputString);
-//            while ((line = br.readLine()) != null) {
 
                 String[] words1 = line.split("\\s+");
 
@@ -257,11 +229,7 @@ public class FinalReportTable extends javax.swing.JFrame {
                     } else {
                         indi = 1;
                     }
-
                 }
-
-//            }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

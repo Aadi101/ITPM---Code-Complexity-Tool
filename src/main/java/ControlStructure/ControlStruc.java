@@ -269,6 +269,8 @@ public class ControlStruc extends javax.swing.JFrame {
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        DefaultTableModel modelReset = (DefaultTableModel) jTable1.getModel();
+        modelReset.setRowCount(0);
         String fullCode6 = jTextArea1.getText();
         
         if (fullCode6.isEmpty()) {
