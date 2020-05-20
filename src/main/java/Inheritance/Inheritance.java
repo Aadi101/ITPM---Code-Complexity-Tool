@@ -432,7 +432,7 @@ public class Inheritance extends javax.swing.JFrame {
        moreThanThreeUserDefinedInheritance = in.moreThanThreeUserDefinedInheritance;
      }
     
-    private int calculateWeightDueToNumOfInheritance(String className) {
+    public int calculateWeightDueToNumOfInheritance(String className) {
         int weight = 0;
         int numOfFounds = 0;
         for (int i = 0; i < classNames.size(); i++) {

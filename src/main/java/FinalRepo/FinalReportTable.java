@@ -5,7 +5,13 @@
  */
 package FinalRepo;
 
+import Commons.Weights;
 import ControlStructure.CalculateControlStruct;
+import Inheritance.Inheritance_Finder;
+import java.io.BufferedReader;
+import java.io.Reader;
+import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +24,8 @@ public class FinalReportTable extends javax.swing.JFrame {
     Stack ccsStack = new Stack();
     int currentCcs = 0;
     String[] lines ;
+    int parentIindex = 0;
+    ArrayList<String> classNames = new ArrayList<>();
 
     /**
      * Creates new form FinalReportTable
@@ -79,6 +87,7 @@ public class FinalReportTable extends javax.swing.JFrame {
 
     public void calculateFinalValues() {
        int index = 1;
+       int totalCi = 0;
        for(String line : lines){
            
            int ccs = this.calculateControlStructs(line);
@@ -89,7 +98,7 @@ public class FinalReportTable extends javax.swing.JFrame {
            int cm=0;
            int ccp=0;
            
-           
+           totalCi += ci;
            Object[] row = new Object[]{index++, line, cs, cv, cm, ci, ccp, ccs};
            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
            model.addRow(row);
@@ -143,10 +152,147 @@ public class FinalReportTable extends javax.swing.JFrame {
     
     
     private int calculateInheritance(String line){
-        return 0;
+        
+        int ndi = 0, nIndi = 0, ci = 0, tot = 0, total = 0, count = 0;
+                String[] words = line.split("\\s+");
+
+                String superclass;
+//                try {
+                    for (int i = 0; i < words.length; i++) {
+
+                        if ("class".equals(words[i])) {
+
+                            ndi = directInheritance(words[i + 1].toString(), line);
+                            superclass = words[i + 1].toString();
+
+                            if (words.length > 4) {
+                                if ("extends".equals(words[i + 2])) {
+//                                    if (line.contains("extends")) {
+
+//                                    System.out.println(words[i + 1] + " Indirect Inheritance = " + indeirectInheritance(words[i + 3], words[i + 1]));
+                                    nIndi = indeirectInheritance(words[i + 3], words[i + 1], line);
+                                }
+                            } else {
+                                nIndi = 0;
+                                System.out.println(words[i + 1] + " Indirect Inheritance = " + nIndi);
+                            }
+
+                            
+
+                            String k;
+                            k = words[i + 1];
+                            
+                            classNames.add(k);
+                            int weigthDueToInherit = this.calculateWeightDueToNumOfInheritance(k);
+                            count++;
+                            ArrayList<String> out = new ArrayList<>();
+                            ndi *= weigthDueToInherit;
+                            nIndi *= weigthDueToInherit;
+                            total = ndi + nIndi;
+                            System.out.println(words[i + 1] + " total = " + total);
+                            ci = ndi + nIndi;
+                            System.out.println(words[i + 1] + " Ci = " + ci);
+
+                            tot = ci + tot;
+                            
+                        }
+                    }
+                    return ci;
+       
+    }
+    
+    public int directInheritance(String classname, String line) {
+
+        int di = 0;
+        int indi = 0;
+        try {
+
+            //BufferedReader breader11 = new BufferedReader(new FileReader(file));
+//            Reader inputString = new StringReader(jTextArea1.getText().toString());
+//
+//            BufferedReader breader11 = new BufferedReader(inputString);
+//            String line1;
+
+//            while ((line1 = breader11.readLine()) != null) {
+                String[] word = line.split("\\s+");
+                for (int x = 0; x < word.length; x++) {
+                    if ("class".equals(word[x])) {
+                        if (word.length > 4) {
+                            if (classname.equals(word[x + 1])) {
+                                di++;
+                            }
+                        }
+                    }
+                }
+//            }
+//            breader11.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return di;
+    }
+
+    public int indeirectInheritance(String extendclass, String classname, String line) {
+//        String line = null;
+        int indi = 0;
+
+        try {
+//
+//            Reader inputString = new StringReader(jTextArea1.getText().toString());
+//            BufferedReader br = new BufferedReader(inputString);
+//            while ((line = br.readLine()) != null) {
+
+                String[] words1 = line.split("\\s+");
+
+                int di = 0;
+                // for (int x =0; x < words1.length ; x++) {
+
+                if (directInheritance(classname, line) == 0) {
+                    indi = 0;
+                }
+                if (directInheritance(classname, line) == 1) {
+
+                    if (directInheritance(extendclass, line) == 0) {
+                        indi = 0;
+                    } else {
+                        indi = 1;
+                    }
+
+                }
+
+//            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return indi;
+    }
     
     
-    
+    public int calculateWeightDueToNumOfInheritance(String className) {
+        int weight = 0;
+      
+        int numOfFounds = 0;
+        for (int i = 0; i < classNames.size(); i++) {
+            if (className.equals(classNames.get(i))) {
+                numOfFounds += 1;
+            }
+        }
+        switch (numOfFounds) {
+            case 0:
+                return Weights.oneUserDefinedInheritance;
+            case 1:
+                return Weights.twoUserDefinedInheritance;
+            case 2:
+                return Weights.threeUserDefinedInheritance;
+            default: {
+                if (numOfFounds > 3) {
+                    return Weights.moreThanThreeUserDefinedInheritance;
+                }
+            }
+        }
+        return Weights.noInheritance;
+        
     }
     
     /**
