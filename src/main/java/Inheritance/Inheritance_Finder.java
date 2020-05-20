@@ -26,10 +26,8 @@ public class Inheritance_Finder {
             String line1;
             while ((line1 = breader.readLine()) != null) {
 
-                String test;
                 String[] words = line1.split("\\s+");
-
-                int Ndi = 0;
+                
                 String superclass;
                 for (int i = 0; i < words.length; i++) {
 
@@ -41,7 +39,6 @@ public class Inheritance_Finder {
 
                         if (words.length > 4) {
                             if ("extends".equals(words[i + 2])) {
-
                                 System.out.println(words[i + 1] + " Indirect Inheritance = " + indeirectInheritance(words[i + 3], words[i + 1]));
                                 nIndi = indeirectInheritance(words[i + 3], words[i + 1]);
                             }
@@ -54,12 +51,10 @@ public class Inheritance_Finder {
                         System.out.println(words[i + 1] + " total = " + total);
                         ci = ndi + nIndi;
                         System.out.println(words[i + 1] + " Ci = " + ci);
-
                         tot = ci + tot;
 
                         String k;
                         k = words[i + 1];
-
                         count++;
                         ArrayList<String> out = new ArrayList<>();
 
@@ -71,18 +66,13 @@ public class Inheritance_Finder {
                         System.out.println("\n" + out + "\n");
                     }
                 }
-
             }
             System.out.println("Total CI = " + tot);
 
-//		      DefaultTableModel model1 = new DefaultTableModel();
-//             
-//                model1.addRow(new Object[]{ndi,nIndi,ci,tot,total,count});
             breader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static int indeirectInheritance(String extendclass, String classname) {
@@ -108,11 +98,8 @@ public class Inheritance_Finder {
                     } else {
                         indi = 1;
                     }
-
                 }
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -122,7 +109,6 @@ public class Inheritance_Finder {
     public static int directInheritance(String classname) {
 
         int di = 0;
-        int indi = 0;
         try {
 
             File file = new File("C:\\Users\\Samanmali\\Documents\\DaysPerMonth.txt");
@@ -145,7 +131,6 @@ public class Inheritance_Finder {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return di;
     }
 
