@@ -7,6 +7,9 @@ package FinalRepo;
 
 import Commons.Weights;
 import ControlStructure.CalculateControlStruct;
+import Size.Methods;
+import Size.Size;
+import Size.Variable;
 import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +25,7 @@ public class FinalReportTable extends javax.swing.JFrame {
     String[] lines ;
     int parentIindex = 0;
     ArrayList<String> classNames = new ArrayList<>();
+    Variable variable = new Variable();
 
     /**
      * Creates new form FinalReportTable
@@ -84,17 +88,24 @@ public class FinalReportTable extends javax.swing.JFrame {
     public void calculateFinalValues() {
        int index = 1;
        int totalCi = 0;
+       int totalCs = 0;
+       int totalCv = 0;
+       int totalCm = 0;
+       variable = new Variable();
        for(String line : lines){
            
            int ccs = this.calculateControlStructs(line);
            int ci = this.calculateInheritance(line);
            //Add other functions========================================================================================
-           int cs=0;
-           int cv=0;
-           int cm=0;
+           int cs=this.calculateSize(line);
+           int cv=this.calculationVariable(line);
+           int cm=this.calculateMethod(line);
            int ccp=0;
            
            totalCi += ci;
+           totalCs += cs;
+           totalCv += cv;
+           totalCm += cm;
            Object[] row = new Object[]{index++, line, cs, cv, cm, ci, ccp, ccs};
            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
            model.addRow(row);
@@ -261,6 +272,87 @@ public class FinalReportTable extends javax.swing.JFrame {
         }
         return Weights.noInheritance;
         
+    }
+    
+    private int calculateSize(String line){
+       
+            //String[] lines = fullCode6.split("\n");
+            int lineCount = lines.length;
+            //System.out.println(result);
+            System.out.println(lineCount);
+            int totalCs = 0;
+//            for (int i = 0; i < lineCount; i++) {
+                int Nkw = 0;
+                int Nid = 0;
+                int Nop = 0;
+                int Nnv = 0;
+                int Nsl = 0;
+                int Cs = 0;
+                
+                Size size = new Size();
+                size.setTextLine(line);
+                size.calculateWeightDueToKeyword();
+                size.calculateWeightDueToIdentifiers();
+                size.findStringLiterals();
+                size.numericValueFind();
+                size.findOperators();
+                
+                Nkw = size.getSumOfKeywords() * Weights.keywordSize;
+                Nid = size.getSumOfIdentifiers() * Weights.identifierSize;
+                Nop = size.getSumOfOperators() * Weights.operatorSize;
+                Nnv = size.getSumOfNumeric() * Weights.numericalValueSize;
+                Nsl = size.getSumOfStringLiterals() * Weights.stringliteralSize;
+                
+                Cs = Nkw + Nid + Nop + Nnv + Nsl;
+                
+                totalCs += Cs;
+//                }
+
+            
+        return  totalCs;          
+    }
+    
+    private int calculationVariable(String line){
+        int lineCount = lines.length;
+        int cv = 0;
+            //System.out.println(result);
+            System.out.println(lineCount);
+//            for (int i = 0; i < lineCount; i++){
+                
+                int wvs = 0 ;
+                int npdtv = 0 ;
+                int ncdtv = 0 ;
+                variable.setNcdtv(0);
+                variable.setNpdtv(0);
+                variable.setWvs(0);
+                variable.setCodeLine(line);
+                variable.findVariable();
+                wvs = variable.getWvs();
+                npdtv = variable.getNpdtv();
+                ncdtv = variable.getNcdtv();
+                cv  = wvs + npdtv + ncdtv;
+                
+//            }
+        return  cv;
+    }
+    
+    private int calculateMethod(String line){
+        int lineCount = lines.length;
+        int cm = 0;
+            //System.out.println(result);
+            System.out.println(lineCount);
+//         for (int i = 0; i < lineCount; i++){
+                
+                Methods methods = new Methods();
+                methods.setTextLine(line);
+                methods.checkMethods();
+                int wmrt = methods.getWmrt();
+                int npdtv = methods.getNpdtp() * Weights.primitiveDataTypeParameter;
+                int ncdtp = methods.getNcdtp() * Weights.compositeDataTypeParameter;
+                cm = wmrt + npdtv + ncdtp;
+//                }
+
+        return cm;
     }
     
     /**
